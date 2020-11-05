@@ -9,4 +9,4 @@ add_executable(ass_1
         include/json.hpp
         include/Session.h
         include/Tree.h
-        src/main.cpp)
+        src/main.cpp src/Session.cpp src/Agent.cpp src/Tree.cpp src/Graph.cpp)
