@@ -37,7 +37,7 @@ void Session::setGraph(const Graph &graph) {}
 int Session::dequeueInfected() {}
 
 void Session::enqueueInfected(int) {
-    //infected.push_back(int)
+    //infected.push_back(int);
 }
 
 TreeType Session::getTreeType() const {
