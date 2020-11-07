@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "Session.h"
-
+//Agent
 class Agent{
 public:
     Agent(Session& session);
@@ -14,6 +14,8 @@ protected:
     Session& session;
 };
 
+
+//ContactTracer
 class ContactTracer: public Agent{
 public:
     ContactTracer(Session& session);
@@ -21,7 +23,7 @@ public:
     virtual void act(Session& session);
 };
 
-
+//Virus
 class Virus: public Agent{
 public:
     Virus(int nodeInd, Session& session);
@@ -30,6 +32,9 @@ public:
 
 private:
     const int nodeInd;
+
+    int getMin(int [] arr);
+
 };
 
 #endif

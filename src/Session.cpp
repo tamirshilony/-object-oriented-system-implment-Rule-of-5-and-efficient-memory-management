@@ -31,11 +31,13 @@ void Session::addAgent(const Agent &agent) {
     Agent* agent2add = agent.clone();
     agents.push_back(agent2add);
 }
+//Graph methods
+void Session::setGraph(const Graph &graph){}
+int* session::getNodeNeighbors(int node){}
 
-void Session::setGraph(const Graph &graph) {}
-
+//Agent actions
+void session::infectNode(int node); //should update node as infected and use nqueueInfected()
 int Session::dequeueInfected() {}
-
 void Session::enqueueInfected(int) {
     //infected.push_back(int)
 }
