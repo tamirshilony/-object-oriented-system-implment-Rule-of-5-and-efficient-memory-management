@@ -278,33 +278,6 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/main2.o: src/main2.cpp.o
-
-.PHONY : src/main2.o
-
-# target to build an object file
-src/main2.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/main2.cpp.o
-.PHONY : src/main2.cpp.o
-
-src/main2.i: src/main2.cpp.i
-
-.PHONY : src/main2.i
-
-# target to preprocess a source file
-src/main2.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/main2.cpp.i
-.PHONY : src/main2.cpp.i
-
-src/main2.s: src/main2.cpp.s
-
-.PHONY : src/main2.s
-
-# target to generate assembly for a file
-src/main2.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/main2.cpp.s
-.PHONY : src/main2.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -329,9 +302,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/main2.o"
-	@echo "... src/main2.i"
-	@echo "... src/main2.s"
 .PHONY : help
 
 

@@ -4,7 +4,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/ass_1.dir/src/Session.cpp.o"
   "CMakeFiles/ass_1.dir/src/Tree.cpp.o"
   "CMakeFiles/ass_1.dir/src/main.cpp.o"
-  "CMakeFiles/ass_1.dir/src/main2.cpp.o"
   "ass_1"
   "ass_1.pdb"
 )
