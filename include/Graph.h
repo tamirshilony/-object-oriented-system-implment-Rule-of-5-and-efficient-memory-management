@@ -5,6 +5,7 @@
 
 class Graph{
 public:
+
     Graph(std::vector<std::vector<int>> matrix);
     
     void infectNode(int nodeInd);

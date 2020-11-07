@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/spl211/stud/SPL/Ass1/src/Session.cpp" "/home/spl211/stud/SPL/Ass1/cmake-build-debug/CMakeFiles/ass_1.dir/src/Session.cpp.o"
   "/home/spl211/stud/SPL/Ass1/src/Tree.cpp" "/home/spl211/stud/SPL/Ass1/cmake-build-debug/CMakeFiles/ass_1.dir/src/Tree.cpp.o"
   "/home/spl211/stud/SPL/Ass1/src/main.cpp" "/home/spl211/stud/SPL/Ass1/cmake-build-debug/CMakeFiles/ass_1.dir/src/main.cpp.o"
+  "/home/spl211/stud/SPL/Ass1/src/main2.cpp" "/home/spl211/stud/SPL/Ass1/cmake-build-debug/CMakeFiles/ass_1.dir/src/main2.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

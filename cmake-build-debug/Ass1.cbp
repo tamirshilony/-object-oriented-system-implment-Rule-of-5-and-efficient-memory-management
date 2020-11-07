@@ -114,6 +114,9 @@
 		<Unit filename="/home/spl211/stud/SPL/Ass1/src/main.cpp">
 			<Option target="ass_1"/>
 		</Unit>
+		<Unit filename="/home/spl211/stud/SPL/Ass1/src/main2.cpp">
+			<Option target="ass_1"/>
+		</Unit>
 		<Unit filename="/home/spl211/stud/SPL/Ass1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

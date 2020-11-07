@@ -3,12 +3,21 @@
 //
 
 #include "../include/Agent.h"
+using namespace std;
 
-Agent::Agent(Session &session):session() {}
+Agent::Agent(Session &session):session(session){
 
-Virus::Virus(int nodeInd, Session &session) {}
+}
 
-void Virus::act() {
+Virus::Virus(int nodeInd, Session &session):nodeInd(nodeInd) {
+
+}
+
+Agent * Virus::clone() {
+    return new Virus(*this);
+}
+
+void Virus::act(Session& session) {
     //1. get neighbors
 
     //2. choose next to infect
@@ -24,6 +33,10 @@ void Virus::act() {
 
 ContactTracer::ContactTracer(Session &session) {}
 
-void ContactTracer::act() {}
+Agent * ContactTracer::clone() {
+    return new ContactTracer(*this);
+}
+
+void ContactTracer::act(Session& session) {}
 
 
