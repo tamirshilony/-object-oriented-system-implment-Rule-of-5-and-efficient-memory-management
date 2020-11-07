@@ -39,7 +39,7 @@ int* session::getNodeNeighbors(int node){}
 void session::infectNode(int node); //should update node as infected and use nqueueInfected()
 int Session::dequeueInfected() {}
 void Session::enqueueInfected(int) {
-    //infected.push_back(int)
+    //infected.push_back(int);
 }
 
 TreeType Session::getTreeType() const {
