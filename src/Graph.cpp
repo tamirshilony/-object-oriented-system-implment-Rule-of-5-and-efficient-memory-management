@@ -5,7 +5,7 @@
 #include "../include/Graph.h"
 using namespace std;
 
-Graph::Graph(std::vector<std::vector<int>> matrix) {}
+Graph::Graph(std::vector<std::vector<int>> matrix){}
 
 
 void Graph::infectNode(int nodeInd) {}

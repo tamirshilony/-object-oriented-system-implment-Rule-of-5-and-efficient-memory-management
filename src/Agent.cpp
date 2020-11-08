@@ -7,7 +7,6 @@ using namespace std;
 
 //Agent
 Agent::Agent():{
-
 }
 
 //Virus

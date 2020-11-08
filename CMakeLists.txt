@@ -3,7 +3,7 @@ project(Ass1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(ass_1
+add_executable(Ass1
         include/Agent.h
         include/Graph.h
         include/json.hpp
