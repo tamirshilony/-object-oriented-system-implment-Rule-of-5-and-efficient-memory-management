@@ -65,11 +65,9 @@ void Session::addAgent(const Agent &agent) {
 }
 //Graph methods
 
-void Session::setGraph(const Graph &graph){
-    g = graph;
-}
-std::vector<int> * Session::getNodeNeighbors(int node) {
-    return g.getNeighbors(node);
+void Session::setGraph(const Graph &graph){}
+std::vector<int> * Session::getNonInfNeighbors(int node) {
+    return g.getNonInfNeighbors(node);
 }
 
 

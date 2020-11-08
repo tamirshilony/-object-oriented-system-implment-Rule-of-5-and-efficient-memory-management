@@ -15,7 +15,7 @@ Virus::Virus(int nodeInd):nodeInd(nodeInd) {
 
 }
 
-Agent * Virus::clone() {
+Agent * Virus::clone() const{
     return new Virus(*this);
 }
 
@@ -32,7 +32,7 @@ int Virus::getMin(vector<int> vec){
 
 void Virus::act(Session& session) {
     //1. get neighbors
-    vector<int> *neighbor = session.getNodeNeighbors(nodeInd);
+    vector<int> *neighbor = session.getNonInfNeighbors(nodeInd);
     //2. choose next to infect
     int Virus::minNeighbor = getMin(*neighbor); // need to be implemented
     //3. change node status and add to queue
@@ -50,7 +50,7 @@ void Virus::act(Session& session) {
 //ContactTracer
 ContactTracer::ContactTracer(Session &session) {}
 
-Agent * ContactTracer::clone() {
+Agent * ContactTracer::clone() const{
     return new ContactTracer(*this);
 }
 

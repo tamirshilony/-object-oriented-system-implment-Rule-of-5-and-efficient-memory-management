@@ -68,10 +68,10 @@ RM = /snap/clion/129/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spl211/stud/SPL/Ass1
+CMAKE_SOURCE_DIR = /home/ofer/Desktop/Studies/SPL/spl_1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spl211/stud/SPL/Ass1/cmake-build-debug
+CMAKE_BINARY_DIR = /home/ofer/Desktop/Studies/SPL/spl_1/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/stud/SPL/Ass1/cmake-build-debug/CMakeFiles /home/spl211/stud/SPL/Ass1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ofer/Desktop/Studies/SPL/spl_1/cmake-build-debug/CMakeFiles /home/ofer/Desktop/Studies/SPL/spl_1/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/spl211/stud/SPL/Ass1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ofer/Desktop/Studies/SPL/spl_1/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -131,6 +131,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+<<<<<<< HEAD
+# Target rules for targets named spl_1
+
+# Build rule for target.
+spl_1: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 spl_1
+.PHONY : spl_1
+
+# fast build rule for target.
+spl_1/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/build
+.PHONY : spl_1/fast
+=======
 # Target rules for targets named ass_1
 
 # Build rule for target.
@@ -142,6 +155,7 @@ ass_1: cmake_check_build_system
 ass_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/build
 .PHONY : ass_1/fast
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 
 src/Agent.o: src/Agent.cpp.o
 
@@ -149,7 +163,11 @@ src/Agent.o: src/Agent.cpp.o
 
 # target to build an object file
 src/Agent.cpp.o:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Agent.cpp.o
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Agent.cpp.o
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Agent.cpp.o
 
 src/Agent.i: src/Agent.cpp.i
@@ -158,7 +176,11 @@ src/Agent.i: src/Agent.cpp.i
 
 # target to preprocess a source file
 src/Agent.cpp.i:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Agent.cpp.i
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Agent.cpp.i
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Agent.cpp.i
 
 src/Agent.s: src/Agent.cpp.s
@@ -167,7 +189,11 @@ src/Agent.s: src/Agent.cpp.s
 
 # target to generate assembly for a file
 src/Agent.cpp.s:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Agent.cpp.s
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Agent.cpp.s
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Agent.cpp.s
 
 src/Graph.o: src/Graph.cpp.o
@@ -176,7 +202,11 @@ src/Graph.o: src/Graph.cpp.o
 
 # target to build an object file
 src/Graph.cpp.o:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Graph.cpp.o
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Graph.cpp.o
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Graph.cpp.o
 
 src/Graph.i: src/Graph.cpp.i
@@ -185,7 +215,11 @@ src/Graph.i: src/Graph.cpp.i
 
 # target to preprocess a source file
 src/Graph.cpp.i:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Graph.cpp.i
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Graph.cpp.i
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Graph.cpp.i
 
 src/Graph.s: src/Graph.cpp.s
@@ -194,7 +228,11 @@ src/Graph.s: src/Graph.cpp.s
 
 # target to generate assembly for a file
 src/Graph.cpp.s:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Graph.cpp.s
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Graph.cpp.s
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Graph.cpp.s
 
 src/Session.o: src/Session.cpp.o
@@ -203,7 +241,11 @@ src/Session.o: src/Session.cpp.o
 
 # target to build an object file
 src/Session.cpp.o:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Session.cpp.o
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Session.cpp.o
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Session.cpp.o
 
 src/Session.i: src/Session.cpp.i
@@ -212,7 +254,11 @@ src/Session.i: src/Session.cpp.i
 
 # target to preprocess a source file
 src/Session.cpp.i:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Session.cpp.i
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Session.cpp.i
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/Session.cpp.i
 
 src/Session.s: src/Session.cpp.s
@@ -221,6 +267,11 @@ src/Session.s: src/Session.cpp.s
 
 # target to generate assembly for a file
 src/Session.cpp.s:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/Session.cpp.s
+.PHONY : src/Session.cpp.s
+
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Session.cpp.s
 .PHONY : src/Session.cpp.s
 
@@ -251,13 +302,18 @@ src/Tree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/Tree.cpp.s
 .PHONY : src/Tree.cpp.s
 
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/main.cpp.o
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/main.cpp.o
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -266,7 +322,11 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/main.cpp.i
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/main.cpp.i
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -275,7 +335,11 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
+<<<<<<< HEAD
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spl_1.dir/build.make CMakeFiles/spl_1.dir/src/main.cpp.s
+=======
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ass_1.dir/build.make CMakeFiles/ass_1.dir/src/main.cpp.s
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -286,7 +350,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+<<<<<<< HEAD
+	@echo "... spl_1"
+=======
 	@echo "... ass_1"
+>>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
 	@echo "... src/Agent.o"
 	@echo "... src/Agent.i"
 	@echo "... src/Agent.s"
@@ -296,9 +364,6 @@ help:
 	@echo "... src/Session.o"
 	@echo "... src/Session.i"
 	@echo "... src/Session.s"
-	@echo "... src/Tree.o"
-	@echo "... src/Tree.i"
-	@echo "... src/Tree.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

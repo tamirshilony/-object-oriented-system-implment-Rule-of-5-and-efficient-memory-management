@@ -31,7 +31,7 @@ public:
 private:
     const int nodeInd;
 
-    int getMin(vector<int> vec);
+    int getMin(std::vector<int> vec);
 
 };
 
