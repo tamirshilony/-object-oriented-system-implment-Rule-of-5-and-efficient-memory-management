@@ -11,3 +11,5 @@ Graph::Graph(std::vector<std::vector<int>> matrix) {}
 void Graph::infectNode(int nodeInd) {}
 
 bool Graph::isInfected(int nodeInd) {}
+
+std::vector getNeighbors(int nodeInd){}

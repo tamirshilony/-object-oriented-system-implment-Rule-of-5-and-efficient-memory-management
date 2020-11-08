@@ -33,7 +33,7 @@ public:
 private:
     const int nodeInd;
 
-    int getMin(int [] arr);
+    int getMin(vector<int> vec);
 
 };
 

@@ -33,7 +33,7 @@ void Session::addAgent(const Agent &agent) {
 }
 //Graph methods
 void Session::setGraph(const Graph &graph){}
-std::vector session::getNodeNeighbors(int node){}
+vector<int> session::getNodeNeighbors(int node){}
 
 //Agent actions
 void session::infectNode(int node); //should update node as infected and use nqueueInfected()
