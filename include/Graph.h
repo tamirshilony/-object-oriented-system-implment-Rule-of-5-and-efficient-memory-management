@@ -10,7 +10,7 @@ public:
     
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);
-    std::vector getNeighbors(int nodeInd);
+    std::vector<int> getNeighbors(int nodeInd);
 private:
     std::vector<std::vector<int>> edges;
 };

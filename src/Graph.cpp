@@ -12,5 +12,5 @@ void Graph::infectNode(int nodeInd) {}
 
 bool Graph::isInfected(int nodeInd) {}
 
-std::vector getNeighbors(int nodeInd){
+std::vector<int> getNeighbors(int nodeInd){
 }
