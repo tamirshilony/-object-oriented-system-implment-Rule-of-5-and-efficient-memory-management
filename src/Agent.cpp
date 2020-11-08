@@ -5,11 +5,13 @@
 #include "../include/Agent.h"
 using namespace std;
 
-Agent::Agent(Session &session):session(session){
+//Agent
+Agent::Agent():{
 
 }
 
-Virus::Virus(int nodeInd, Session &session):nodeInd(nodeInd) {
+//Virus
+Virus::Virus(int nodeInd):nodeInd(nodeInd) {
 
 }
 
@@ -19,18 +21,22 @@ Agent * Virus::clone() {
 
 void Virus::act(Session& session) {
     //1. get neighbors
-
+    int *neighbor = session->getNodeNeighbors(nodeInd);
     //2. choose next to infect
+    int Virus::minNeighbor = getMin(neighbor); // need to be implemented
+    //3. change node status and add to queue
+    session->infectNode(minNeighbor);
+    //4. create new virus
+    Virus newVirus = new Virus(minNeighbor);
+    //5. add to agent list
+    session->addAgent(&newVirus);
 
-    //3. change node status
 
-    //4. add node to queue
-
-    //5. create new virus
-
-    //6. add to agent list
 }
 
+int getMin(int[] arr){}
+
+//ContactTracer
 ContactTracer::ContactTracer(Session &session) {}
 
 Agent * ContactTracer::clone() {

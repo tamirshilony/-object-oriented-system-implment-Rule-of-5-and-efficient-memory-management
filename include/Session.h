@@ -20,9 +20,14 @@ public:
 
     void simulate();
     void addAgent(const Agent& agent);
+
+    //Graph methods
     void setGraph(const Graph& graph);
-    
-    void enqueueInfected(int);
+    int* getNodeNeighbors(int node);
+
+    //Agent actions
+    void infectNode(int node); //should update node as infected and use nqueueInfected()
+    void enqueueInfected(int n);
     int dequeueInfected();
     TreeType getTreeType() const;
     
