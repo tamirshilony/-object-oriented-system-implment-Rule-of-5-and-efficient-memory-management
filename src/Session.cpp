@@ -64,10 +64,10 @@ void Session::addAgent(const Agent &agent) {
     agents.push_back(agent2add);
 }
 //Graph methods
-void Session::setGraph(const Graph& graph){}
-int* Session::getNodeNeighbors(int node){
 
-}
+void Session::setGraph(const Graph &graph){}
+vector<int> session::getNodeNeighbors(int node){}
+
 
 //Agent actions
 //void Session::infectNode(int node); //should update node as infected and use nqueueInfected()
