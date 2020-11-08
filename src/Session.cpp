@@ -65,7 +65,9 @@ void Session::addAgent(const Agent &agent) {
 }
 //Graph methods
 
-void Session::setGraph(const Graph &graph){}
+void Session::setGraph(const Graph &graph){
+    g = graph;
+}
 std::vector<int> * Session::getNodeNeighbors(int node) {
     return g.getNeighbors(node);
 }
@@ -78,13 +80,14 @@ void Session::infectNode(int node){
 
 int Session::dequeueInfected() {
     int next = infected.front();
+    infected.pop();
     return next;
-    //infected.erase(infected.begin());
+
 
 
 }
-void Session::enqueueInfected(int n) {
-    infected.push_back(n);
+void Session::enqueueInfected(int node) {
+    infected.push(node);
 }
 
 TreeType Session::getTreeType() const {
