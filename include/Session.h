@@ -23,7 +23,7 @@ public:
 
     //Graph methods
     void setGraph(const Graph& graph);
-    int* getNodeNeighbors(int node);
+    std::vector *getNodeNeighbors(int node);
 
     //Agent actions
     void infectNode(int node); //should update node as infected and use nqueueInfected()

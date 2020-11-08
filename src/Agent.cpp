@@ -21,7 +21,7 @@ Agent * Virus::clone() {
 
 void Virus::act(Session& session) {
     //1. get neighbors
-    int *neighbor = session->getNodeNeighbors(nodeInd);
+    std::vector *neighbor = session->getNodeNeighbors(nodeInd);
     //2. choose next to infect
     int Virus::minNeighbor = getMin(neighbor); // need to be implemented
     //3. change node status and add to queue
