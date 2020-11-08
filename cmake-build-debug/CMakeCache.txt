@@ -17,24 +17,6 @@
 //No help, variable specified on the command line.
 CMAKE_BUILD_TYPE:UNINITIALIZED=Debug
 
-//Path to a program.
-CMAKE_MAKE_PROGRAM:FILEPATH=CMAKE_MAKE_PROGRAM-NOTFOUND
-
-//Value Computed by CMake
-CMAKE_PROJECT_DESCRIPTION:STATIC=
-
-//Value Computed by CMake
-CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
-
-//Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=spl_1
-
-//Value Computed by CMake
-spl_1_BINARY_DIR:STATIC=/home/ofer/Desktop/Studies/SPL/spl_1/cmake-build-debug
-
-//Value Computed by CMake
-spl_1_SOURCE_DIR:STATIC=/home/ofer/Desktop/Studies/SPL/spl_1
-
 
 ########################
 # INTERNAL cache entries
@@ -67,14 +49,8 @@ CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/ofer/Desktop/Studies/SPL/spl_1
-//ADVANCED property for variable: CMAKE_MAKE_PROGRAM
-CMAKE_MAKE_PROGRAM-ADVANCED:INTERNAL=1
 //number of local generators
 CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
-//Platform information initialized
-CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //Path to CMake installation.
 CMAKE_ROOT:INTERNAL=/snap/clion/129/bin/cmake/linux/share/cmake-3.17
-//uname command
-CMAKE_UNAME:INTERNAL=/bin/uname
 
