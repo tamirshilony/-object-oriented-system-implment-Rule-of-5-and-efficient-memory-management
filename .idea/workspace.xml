@@ -1,56 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-<<<<<<< HEAD
-      <config projectName="spl_1" targetName="spl_1" />
-=======
-      <config projectName="Ass1" targetName="ass_1" />
->>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
+      <config projectName="Ass1" targetName="Ass1" />
     </generated>
   </component>
-  <component name="CMakeSettings" AUTO_RELOAD="true">
+  <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="12e91f29-1bdb-4c36-a38b-f5aff29cd736" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-=======
-    <list default="true" id="b033b7fc-9fc7-4e6f-9fe4-90ba183ac581" name="Default Changelist" comment="">
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Graph.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.cpp" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/spl_1.iml" beforeDir="false" />
->>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
+    <list default="true" id="d33211a6-5d99-45cd-a52b-f11d0c5f7572" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Ass1.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Ass1.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Agent.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Agent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Graph.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Graph.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Session.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Session.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Agent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Agent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.cpp" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Session.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Session.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Graph.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Graph.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Session.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config1.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/config1.json" afterDir="false" />
->>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
->>>>>>> 8601a051fd9ce4df9df56abfc1b474cf1b518572
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,12 +51,8 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="1k0uIdRD6ujGcVh7QqOf7ugcEUG" />
-=======
-  <component name="ProjectId" id="1k0zdRhVdH26TPaygQSkEVTqtY9" />
+  <component name="ProjectId" id="1k3UonpjCZfOPnd6dplNmuRyY4k" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
->>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -78,30 +61,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-<<<<<<< HEAD
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-  </component>
-  <component name="RunManager">
-=======
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="Ass1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ass1" TARGET_NAME="Ass1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Ass1" RUN_TARGET_NAME="Ass1">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-<<<<<<< HEAD
-    <configuration name="spl_1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="spl_1" TARGET_NAME="spl_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="spl_1" RUN_TARGET_NAME="spl_1">
-=======
->>>>>>> 8601a051fd9ce4df9df56abfc1b474cf1b518572
-    <configuration name="ass_1" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Ass1" TARGET_NAME="ass_1" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Ass1" RUN_TARGET_NAME="ass_1">
->>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -115,65 +83,18 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="12e91f29-1bdb-4c36-a38b-f5aff29cd736" name="Default Changelist" comment="" />
-      <created>1604849751728</created>
+      <changelist id="d33211a6-5d99-45cd-a52b-f11d0c5f7572" name="Default Changelist" comment="" />
+      <created>1604928946093</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1604849751728</updated>
-      <workItem from="1604849752855" duration="357000" />
-      <workItem from="1604924089988" duration="719000" />
-      <workItem from="1604924826189" duration="1942000" />
-=======
-      <changelist id="b033b7fc-9fc7-4e6f-9fe4-90ba183ac581" name="Default Changelist" comment="" />
-      <created>1604852384165</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1604852384165</updated>
-<<<<<<< HEAD
-      <workItem from="1604852386859" duration="1496000" />
-      <workItem from="1604862461403" duration="41000" />
-=======
-      <workItem from="1604852386859" duration="1127000" />
->>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
->>>>>>> 8601a051fd9ce4df9df56abfc1b474cf1b518572
+      <updated>1604928946093</updated>
+      <workItem from="1604928948587" duration="256000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-<<<<<<< HEAD
-  <component name="WindowStateProjectService">
-    <state x="452" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604924174147">
-      <screen x="69" y="32" width="1851" height="1048" />
-    </state>
-    <state x="452" y="214" key="#com.intellij.execution.impl.EditConfigurationsDialog/69.32.1851.1048@69.32.1851.1048" timestamp="1604924174147" />
-    <state x="777" y="314" width="424" height="482" key="FileChooserDialogImpl" timestamp="1604924955567">
-      <screen x="69" y="32" width="1851" height="1048" />
-    </state>
-    <state x="777" y="314" width="424" height="482" key="FileChooserDialogImpl/69.32.1851.1048@69.32.1851.1048" timestamp="1604924955567" />
-    <state x="483" y="191" key="SettingsEditor" timestamp="1604924962452">
-      <screen x="69" y="32" width="1851" height="1048" />
-    </state>
-    <state x="483" y="191" key="SettingsEditor/69.32.1851.1048@69.32.1851.1048" timestamp="1604924962452" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/include/Agent.h</url>
-          <line>3</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/include/Session.h</url>
-          <line>3</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-=======
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -184,10 +105,19 @@
         </entry>
       </map>
     </option>
-<<<<<<< HEAD
-    <option name="oldMeFiltersMigrated" value="true" />
-=======
->>>>>>> ab94f85f0225d729502ca7194ae5314b993429f8
->>>>>>> 8601a051fd9ce4df9df56abfc1b474cf1b518572
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="166" y="61" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604928972261">
+      <screen x="67" y="27" width="733" height="573" />
+    </state>
+    <state x="166" y="61" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.733.573@67.27.733.573" timestamp="1604928972261" />
+    <state x="216" y="71" width="424" height="484" key="FileChooserDialogImpl" timestamp="1604929048255">
+      <screen x="67" y="27" width="733" height="573" />
+    </state>
+    <state x="216" y="71" width="424" height="484" key="FileChooserDialogImpl/67.27.733.573@67.27.733.573" timestamp="1604929048255" />
+    <state x="67" y="27" key="SettingsEditor" timestamp="1604929051176">
+      <screen x="67" y="27" width="733" height="573" />
+    </state>
+    <state x="67" y="27" key="SettingsEditor/67.27.733.573@67.27.733.573" timestamp="1604929051176" />
   </component>
 </project>
