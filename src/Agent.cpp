@@ -48,12 +48,20 @@ void Virus::act(Session& session) {
 }
 
 //ContactTracer
-ContactTracer::ContactTracer(Session &session) {}
+ContactTracer::ContactTracer() {}
 
 Agent * ContactTracer::clone() const{
     return new ContactTracer(*this);
 }
 
-void ContactTracer::act(Session& session) {}
+void ContactTracer::act(Session& session) {
+    //1. Dequeue next infected
+    int nextInf = session.dequeueInfected();
+    //2. Create tree
+
+    //3. Trace tree
+
+    //4. Remove edges
+}
 
 
