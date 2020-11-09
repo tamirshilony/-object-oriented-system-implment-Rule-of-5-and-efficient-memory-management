@@ -3,6 +3,7 @@
 
 #include <vector>
 
+
 class Graph{
 public:
 
@@ -10,7 +11,7 @@ public:
     
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);
-    std::vector getNeighbors(int nodeInd);
+    std::vector<int> getNonInfNeighbors(int nodeInd);
 private:
     std::vector<std::vector<int>> edges;
 };
