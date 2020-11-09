@@ -25,7 +25,7 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
         treeType = MaxRank;
     else
         treeType = Root;
-
+    // creating real agents from the input
     for(auto agent:j["agents"]){
         if (agent[0]=="V") {
             Virus *newVirus = new Virus(agent[1]);
@@ -62,7 +62,9 @@ void Session::addAgent(const Agent &agent) {
 }
 //Graph methods
 
-void Session::setGraph(const Graph &graph){}
+void Session::setGraph(const Graph &graph){
+    g = graph;
+}
 std::vector<int> Session::getNonInfNeighbors(int node) {
     return g.getNonInfNeighbors(node);
 }
