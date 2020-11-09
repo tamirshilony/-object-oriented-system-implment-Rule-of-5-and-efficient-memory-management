@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(spl_1)
+project(Ass1)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -12,4 +12,6 @@ add_executable(spl_1
         src/main.cpp
         src/Session.cpp
         src/Agent.cpp
-        src/Graph.cpp)
+        src/Graph.cpp
+        src/Tree.cpp)
+

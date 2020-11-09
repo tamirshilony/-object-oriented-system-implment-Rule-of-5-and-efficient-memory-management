@@ -2,6 +2,7 @@
 #define SESSION_H_
 
 #include <vector>
+#include <queue>
 #include <string>
 #include "Graph.h"
 
@@ -27,7 +28,7 @@ public:
 
     //Agent actions
     void infectNode(int node); //should update node as infected and use nqueueInfected()
-    void enqueueInfected(int n);
+    void enqueueInfected(int node);
     int dequeueInfected();
     TreeType getTreeType() const;
     
@@ -35,7 +36,7 @@ private:
     Graph g;
     TreeType treeType;
     std::vector<Agent*> agents;
-    std::vector<int>infected;
+    std::queue<int>infected;
 };
 
 #endif
