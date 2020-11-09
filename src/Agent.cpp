@@ -31,18 +31,18 @@ int Virus::getMin(vector<int> vec){
 }
 
 void Virus::act(Session& session) {
-    //1. get neighbors
-    Graph &g = session.getGraph();
+    //1. Get neighbors
+    Graph const &g = session.getGraph();
     vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
-    //2. choose next to infect
+    //2. Choose next to infect
     int minNeighbor = getMin(neighbor); // need to be implemented
-    //3. change node status and add to queue
+    //3. Change node status and add to queue
     session.infectNode(minNeighbor);
-    //4. create new virus
+    //4. Create new virus
     Virus *newVirus = new Virus(minNeighbor);
-    //5. add to agent list
+    //5. Add to agent list
     session.addAgent(newVirus);
-    //6. delete resources
+    //6. Delete resources
     delete neighbor;
 
 
@@ -59,9 +59,10 @@ void ContactTracer::act(Session& session) {
     //1. Dequeue next infected
     int nextInf = session.dequeueInfected();
     //2. Create tree
-
+    Graph const &g = session.getGraph();
+    Tree *t = g.bfsScan(nextInf, session);
     //3. Trace tree
-
+    t->traceTree();
     //4. Remove edges
 }
 
