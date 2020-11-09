@@ -2,6 +2,8 @@
 #define GRAPH_H_
 
 #include <vector>
+#include "Tree.h"
+
 using namespace std;
 
 class Graph{
@@ -12,7 +14,9 @@ public:
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);
 
+    //new methods
     std::vector<int> getNonInfNeighbors(int nodeInd);
+    Tree* BFS(int nodeInd,const Session& session);
 
 private:
     std::vector<std::vector<int>> edges;

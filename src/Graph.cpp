@@ -25,3 +25,9 @@ std::vector<int> Graph::getNonInfNeighbors(int nodeInd) {
     }
     return Neighbors;
 }
+Tree * Graph::BFS(int nodeInd, const Session &session) {
+    Tree* currTree = Tree::createTree(session,nodeInd);
+    //BFS implement
+
+    return currTree;
+}

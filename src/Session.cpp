@@ -38,13 +38,7 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
 
     }
 }
-Session::Session(const Session& other):g(vector<vector<int>>()),treeType(other.treeType),agents(){
-    for(int i = 0;i<other.agents.size();++i){
-        Agent *nextAgent = other.agents[i]->clone();
-        agents.push_back(nextAgent);
 
-    }
-}
 void Session::simulate() {
     int t = 2;
     while (t>0){
@@ -65,6 +59,8 @@ void Session::addAgent(const Agent &agent) {
 void Session::setGraph(const Graph &graph){
     g = graph;
 }
+const Graph & Session::getGraph() const {{return g;}}
+
 std::vector<int> Session::getNonInfNeighbors(int node) {
     return g.getNonInfNeighbors(node);
 }
@@ -86,5 +82,29 @@ void Session::enqueueInfected(int node) {
 
 TreeType Session::getTreeType() const {
     return treeType;
+}
+
+//rule of 5
+
+Session::Session(const Session& other):g(vector<vector<int>>()),treeType(other.treeType),agents(){
+    for(int i = 0;i<other.agents.size();++i){
+        agents.push_back(other.agents[i]->clone());
+
+    }
+}
+
+Session & Session::operator=(const Session &other) {
+    if (this != &other){
+        g = other.getGraph();
+        treeType = getTreeType();
+        infected = other.infected;
+        for (int i = 0; i < agents.size(); ++i) {
+            delete agents[i];
+        }
+        for (int i = 0; i < other.agents.size(); ++i) {
+            this->addAgent(*other.agents[i]);
+        }
+    }
+    return *this;
 }
 

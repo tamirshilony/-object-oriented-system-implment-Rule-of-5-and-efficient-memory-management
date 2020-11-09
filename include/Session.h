@@ -18,18 +18,27 @@ class Session{
 public:
     Session(const std::string& path);
     Session(const Session& other);
+    Session & operator=(const Session &other);
 
     void simulate();
     void addAgent(const Agent& agent);
 
     //Graph methods
+
     void setGraph(const Graph& graph);
+    //new method
+
+    const Graph& getGraph() const;
     std::vector<int> getNonInfNeighbors(int node);
 
     //Agent actions
-    void infectNode(int node); //should update node as infected and use nqueueInfected()
+
     void enqueueInfected(int node);
     int dequeueInfected();
+
+    //new method
+    void infectNode(int node); //should update node as infected
+
     TreeType getTreeType() const;
     
 private:
