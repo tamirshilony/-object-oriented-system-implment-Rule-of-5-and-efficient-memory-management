@@ -24,7 +24,7 @@ public:
 
     //Graph methods
     void setGraph(const Graph& graph);
-    std::vector<int>* getNonInfNeighbors(int node);
+    std::vector<int> getNonInfNeighbors(int node);
 
     //Agent actions
     void infectNode(int node); //should update node as infected and use nqueueInfected()
@@ -36,6 +36,7 @@ private:
     Graph g;
     TreeType treeType;
     std::vector<Agent*> agents;
+    //new fields
     std::queue<int>infected;
 };
 

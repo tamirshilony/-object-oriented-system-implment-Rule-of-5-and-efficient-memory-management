@@ -2,7 +2,7 @@
 #define GRAPH_H_
 
 #include <vector>
-
+using namespace std;
 
 class Graph{
 public:
@@ -16,6 +16,8 @@ public:
 
 private:
     std::vector<std::vector<int>> edges;
+    //new field
+    vector<bool> infectedNode;
 };
 
 #endif
