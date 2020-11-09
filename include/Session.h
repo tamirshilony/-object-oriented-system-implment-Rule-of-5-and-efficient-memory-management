@@ -29,7 +29,7 @@ public:
     //new method
 
     const Graph& getGraph() const;
-    std::vector<int> getNonInfNeighbors(int node);
+    //std::vector<int> getNonInfNeighbors(int node);
 
     //Agent actions
 

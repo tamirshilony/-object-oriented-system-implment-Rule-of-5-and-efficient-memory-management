@@ -59,17 +59,17 @@ void Session::addAgent(const Agent &agent) {
 void Session::setGraph(const Graph &graph){
     g = graph;
 }
-const Graph & Session::getGraph() const {{return g;}}
+const Graph & Session::getGraph() const {return g;}
 
-std::vector<int> Session::getNonInfNeighbors(int node) {
-    return g.getNonInfNeighbors(node);
-}
+//std::vector<int> Session::getNonInfNeighbors(int node) {
+//    return g.getNonInfNeighbors(node);
+//}
 
 
 //Agent actions
-void Session::infectNode(int node){
+void Session::infectNode(int node){//should update node as infected
     g.infectNode(node);
-} //should update node as infected and use nqueueInfected()
+}
 
 int Session::dequeueInfected() {
     int next = infected.front();
