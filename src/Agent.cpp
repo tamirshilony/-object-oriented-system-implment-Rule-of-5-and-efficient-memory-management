@@ -32,7 +32,8 @@ int Virus::getMin(vector<int> vec){
 
 void Virus::act(Session& session) {
     //1. get neighbors
-    vector<int> neighbor = session.getNonInfNeighbors(nodeInd);
+    Graph &g = session.getGraph();
+    vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
     //2. choose next to infect
     int minNeighbor = getMin(neighbor); // need to be implemented
     //3. change node status and add to queue
