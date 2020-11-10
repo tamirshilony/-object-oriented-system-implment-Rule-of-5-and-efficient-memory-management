@@ -25,7 +25,7 @@ std::vector<int> Graph::getNonInfNeighbors(int nodeInd) {
     }
     return Neighbors;
 }
-Tree * Graph::BFS(int nodeInd, const Session &session) {
+Tree * Graph::BFS(int nodeInd, const Session &session)const {
     Tree* currTree = Tree::createTree(session,nodeInd);
     //BFS implement
     vector<bool>visited(edges.size(), false);
@@ -59,4 +59,30 @@ void Graph::removeEdges(int nodeInd) {
             edges[i][nodeInd] = 0;
         }
     }
+}
+vector<vector<int>> Graph::findComponents() const{
+    vector<vector<int>> componentMatrix;
+    int componentNum = 0;
+    vector<bool>visited(edges.size(),false);
+    for (int i = 0; i < edges.size(); ++i) {
+        if (!visited[i]) {
+            componentMatrix[componentNum].push_back(i);
+            vector<int> q;
+            q.push_back(i);
+            visited[i] = true;
+            while (!q.empty()) {
+                q.erase(q.cbegin());
+                for (int j = 0; j < edges.size(); j++) {
+                    if (edges[i][j] == 1 and (!visited[i])) {
+                        q.push_back(j);
+                        visited[j] = true;
+                        componentMatrix[componentNum].push_back(j);
+                    }
+
+                }
+            }
+            componentNum++;
+        }
+    }
+    return componentMatrix;
 }

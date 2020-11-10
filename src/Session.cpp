@@ -7,10 +7,11 @@
 #include "../include/json.hpp"
 #include "../include/Agent.h"
 
+
 using namespace std;
 using json = nlohmann::json ;
 
-Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infected() {
+Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infected(),components() {
     cycleNum = 0;
     //import the json file
     ifstream inputJ(path);
@@ -38,10 +39,11 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
         }
 
     }
+    components = g.findComponents();
 }
 
 void Session::simulate() {
-    while (cycleNum<10){
+    while (!this->isFinish()){
         int curSize = agents.size();//ensure that new agents wont act
         for(int i = 0;i<curSize;i++){
             agents[i]->act(*this);
@@ -79,6 +81,18 @@ void Session::enqueueInfected(int node) {
 
 TreeType Session::getTreeType() const {
     return treeType;
+}
+
+bool Session::isFinish() {
+    for (int i = 0; i < components.size(); ++i) {
+
+    }
+}
+bool Session::allInfected(vector<int> comp) {
+    bool ans = true;
+    for (int i = 0; i < comp.size(); ++i) {
+
+    }
 }
 
 //rule of 5

@@ -44,7 +44,6 @@ public:
 
     //new method
     void infectNode(int node); //should update node as infected
-
     TreeType getTreeType() const;
     
 private:
@@ -53,7 +52,12 @@ private:
     std::vector<Agent*> agents;
     //new fields
     std::queue<int>infected;
+
     int cycleNum;
+    std::vector<vector<int>> components;
+    bool isFinish();
+    bool allInfected(vector<int> comp);
+    bool allhealth(vector<int> comp);
 };
 
 #endif
