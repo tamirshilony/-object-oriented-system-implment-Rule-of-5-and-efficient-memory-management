@@ -82,7 +82,7 @@ TreeType Session::getTreeType() const {
 
 //rule of 5
 
-Session::Session(const Session& other):g(vector<vector<int>>()),treeType(other.treeType),agents(){
+Session::Session(const Session& other):g(other.g),treeType(other.treeType),agents(), infected(other.infected){
     for(int i = 0;i<other.agents.size();++i){
         agents.push_back(other.agents[i]->clone());
 
@@ -92,7 +92,7 @@ Session::Session(const Session& other):g(vector<vector<int>>()),treeType(other.t
 Session & Session::operator=(const Session &other) {
     if (this != &other){
         g = other.getGraph();
-        treeType = getTreeType();
+        treeType = other.treeType;
         infected = other.infected;
         for (int i = 0; i < agents.size(); ++i) {
             delete agents[i];
@@ -103,4 +103,33 @@ Session & Session::operator=(const Session &other) {
     }
     return *this;
 }
+Session::~Session() {
+    for (int i = 0; i < agents.size(); ++i) {
+        delete agents[i];
+    }
+}
+Session::Session(Session &&other):
+g(other.g),treeType(other.treeType),
+infected(other.infected),agents(other.agents) {
+    for (int i = 0; i < other.agents.size(); ++i) {
+        other.agents[i] = nullptr;
+    }
+}
+Session & Session::operator=(Session &&other) {
+    if (this != &other){
+        g = other.g;
+        treeType = other.treeType;
+        infected = other.infected;
+        for (int i = 0; i < agents.size(); ++i) {
+            delete agents[i];
+        }
+        agents = other.agents;
+        for (int i = 0; i < other.agents.size(); ++i) {
+            agents[i] = nullptr;
+        }
+
+
+    }
+}
+
 

@@ -16,18 +16,24 @@ enum TreeType{
 
 class Session{
 public:
-    Session(const std::string& path);
+    //rule of five
     Session(const Session& other);
     Session & operator=(const Session &other);
+    virtual ~Session();
+    Session(Session&& other);
+    Session & operator=(Session &&other);
 
+
+
+    Session(const std::string& path);
     void simulate();
     void addAgent(const Agent& agent);
 
     //Graph methods
 
     void setGraph(const Graph& graph);
-    //new method
 
+    //new method
     const Graph& getGraph() const;
 
     //Agent actions
