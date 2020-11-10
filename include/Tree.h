@@ -2,6 +2,7 @@
 #define TREE_H_
 
 #include <vector>
+#include "../include/Session.h"
 
 
 class Session;
@@ -10,6 +11,7 @@ class Tree{
 public:
     Tree(int rootLabel);
     void addChild(const Tree& child);
+    const int getNode() const;
 
 
     static Tree* createTree(const Session& session, int rootLabel);
