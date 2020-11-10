@@ -11,6 +11,7 @@ using namespace std;
 using json = nlohmann::json ;
 
 Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infected() {
+    cycleNum = 0;
     //import the json file
     ifstream inputJ(path);
     json j;
@@ -40,13 +41,12 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
 }
 
 void Session::simulate() {
-    int t = 2;
-    while (t>0){
+    while (cycleNum<10){
         int curSize = agents.size();//ensure that new agents wont act
         for(int i = 0;i<curSize;i++){
             agents[i]->act(*this);
         }
-        t--;
+        cycleNum++;
     }
 }
 
@@ -60,6 +60,7 @@ void Session::setGraph(const Graph &graph){
     g = graph;
 }
 const Graph & Session::getGraph() const {return g;}
+const int Session::getCycle() const {return cycleNum;}
 
 
 //Agent actions

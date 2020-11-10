@@ -35,6 +35,7 @@ public:
 
     //new method
     const Graph& getGraph() const;
+    const int getCycle()const;
 
     //Agent actions
 
@@ -52,6 +53,7 @@ private:
     std::vector<Agent*> agents;
     //new fields
     std::queue<int>infected;
+    int cycleNum;
 };
 
 #endif
