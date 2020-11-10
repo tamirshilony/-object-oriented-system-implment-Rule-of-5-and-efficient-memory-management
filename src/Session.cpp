@@ -7,10 +7,11 @@
 #include "../include/json.hpp"
 #include "../include/Agent.h"
 
+
 using namespace std;
 using json = nlohmann::json ;
 
-Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infected() {
+Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infected(),components() {
     cycleNum = 0;
     //import the json file
     ifstream inputJ(path);
@@ -38,10 +39,11 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
         }
 
     }
+    components = g.findComponents();
 }
 
 void Session::simulate() {
-    while (cycleNum<10){
+    while (!this->isFinish()){
         int curSize = agents.size();//ensure that new agents wont act
         for(int i = 0;i<curSize;i++){
             agents[i]->act(*this);
@@ -67,6 +69,9 @@ const int Session::getCycle() const {return cycleNum;}
 void Session::infectNode(int node){//should update node as infected
     g.infectNode(node);
 }
+bool Session::isInfected(int node) {
+    return g.isInfected(node);
+}
 
 int Session::dequeueInfected() {
     int next = infected.front();
@@ -79,6 +84,40 @@ void Session::enqueueInfected(int node) {
 
 TreeType Session::getTreeType() const {
     return treeType;
+}
+
+bool Session::isFinish() {
+    bool ans = true;
+    for (int i = 0; i < components.size() and ans; ++i) {
+        if (!allSame(components[i]))
+            ans = false;
+    }
+    return ans;
+}
+//bool Session::allInfected(vector<int> comp) {
+//    bool ans = true;
+//    for (int i = 0; i < comp.size() and ans; ++i) {
+//        if (!isInfected(comp[i]))
+//            ans = false;
+//    }
+//    return ans;
+//}
+//
+//bool Session::allHealth(vector<int> comp) {
+//    bool ans = true;
+//    for (int i = 0; i < comp.size() and ans; ++i) {
+//        if (isInfected(comp[i]))
+//            ans = false;
+//    }
+//    return ans;
+//}
+bool Session::allSame(vector<int> comp) {
+    bool ans =true;
+    bool first = isInfected(comp[0]);
+    for (int i = 1; i < comp.size() and ans; ++i) {
+        if (isInfected(comp[i]) != first)
+            ans = false;
+    }
 }
 
 //rule of 5
