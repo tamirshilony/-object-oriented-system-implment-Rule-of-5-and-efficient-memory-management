@@ -17,6 +17,8 @@ public:
     //new methods
     std::vector<int> getNonInfNeighbors(int nodeInd);
     Tree* BFS(int nodeInd,const Session& session);
+    void clear();
+    void removeEdges(int nodeInd);
 
 private:
     std::vector<std::vector<int>> edges;

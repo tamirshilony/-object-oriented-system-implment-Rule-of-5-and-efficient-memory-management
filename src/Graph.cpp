@@ -40,9 +40,23 @@ Tree * Graph::BFS(int nodeInd, const Session &session) {
             if (edges[currNode][i]== 1 and (!visited[i])){
                 q.push_back(i);
                 visited[i] = true;
+                Tree* nextTree = Tree::createTree(session,i);
+                currTree->addChild(*nextTree);
             }
         }
     }
 
     return currTree;
+}
+void Graph::clear() {
+    edges.clear();
+}
+
+void Graph::removeEdges(int nodeInd) {
+    for (int i = 0; i < edges[nodeInd].size(); ++i) {
+        if (edges[nodeInd][i]==1) {
+            edges[nodeInd][i] = 0;
+            edges[i][nodeInd] = 0;
+        }
+    }
 }
