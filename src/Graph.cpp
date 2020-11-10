@@ -51,3 +51,12 @@ Tree * Graph::BFS(int nodeInd, const Session &session) {
 void Graph::clear() {
     edges.clear();
 }
+
+void Graph::removeEdges(int nodeInd) {
+    for (int i = 0; i < edges[nodeInd].size(); ++i) {
+        if (edges[nodeInd][i]==1) {
+            edges[nodeInd][i] = 0;
+            edges[i][nodeInd] = 0;
+        }
+    }
+}
