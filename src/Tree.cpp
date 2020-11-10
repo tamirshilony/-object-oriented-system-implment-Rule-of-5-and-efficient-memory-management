@@ -16,9 +16,10 @@ static Tree* createTree(const Session& session, int rootLabel){
     if(session.getTreeType() == MaxRank){
         newTree = new MaxRankTree(rootLabel);
     } else if(session.getTreeType() == Cycle){
-        newTree = new CycleTree(rootLabel);
+        newTree = new CycleTree(rootLabel, session.getCycle());
     } else
         newTree = new RootTree(rootLabel);
+    return newTree;
 }
 
 MaxRankTree::MaxRankTree(int rootLabel): Tree(rootLabel){}
@@ -29,5 +30,5 @@ CycleTree::CycleTree(int rootLabel, int currCycle): Tree(rootLabel), currCycle(c
 
 RootTree::RootTree(int rootLabel):Tree(rootLabel) {}
 int RootTree::traceTree() {
-    return getRoot()
+    return this->getNode();
 }

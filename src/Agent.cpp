@@ -3,6 +3,7 @@
 //
 
 #include "../include/Agent.h"
+#include "../include/Graph.h"
 
 using namespace std;
 
@@ -32,7 +33,7 @@ int Virus::getMin(vector<int> vec){
 
 void Virus::act(Session& session) {
     //1. Get neighbors
-    Graph const &g = session.getGraph();
+    Graph const g = session.getGraph();
     vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
     //2. Choose next to infect
     int minNeighbor = getMin(neighbor); // need to be implemented
@@ -59,11 +60,13 @@ void ContactTracer::act(Session& session) {
     //1. Dequeue next infected
     int nextInf = session.dequeueInfected();
     //2. Create tree
-    Graph const &g = session.getGraph();
-    Tree *t = g.bfsScan(nextInf, session);
+    Graph g = session.getGraph();
+    Tree  *t = g.BFS(nextInf, session);
     //3. Trace tree
-    t->traceTree();
+    int isolateNode = t->traceTree();
     //4. Remove edges
+    g.removeEdges(isolateNode);
+
 }
 
 

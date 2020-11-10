@@ -15,7 +15,7 @@ public:
     bool isInfected(int nodeInd);
 
     //new methods
-    std::vector<int> getNonInfNeighbors(int nodeInd);
+    std::vector<int> getNonInfNeighbors(int nodeInd) const;
     Tree* BFS(int nodeInd,const Session& session)const;
     void clear();
     void removeEdges(int nodeInd);

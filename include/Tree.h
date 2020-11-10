@@ -24,7 +24,7 @@ private:
 class CycleTree: public Tree{
 public:
     CycleTree(int rootLabel, int currCycle);
-    virtual int traceTree();
+    virtual int traceTree() ;
 private:
     int currCycle;
 };
@@ -32,13 +32,13 @@ private:
 class MaxRankTree: public Tree{
 public:
     MaxRankTree(int rootLabel);
-    virtual int traceTree();
+    virtual int traceTree() ;
 };
 
 class RootTree: public Tree{
 public:
     RootTree(int rootLabel);
-    virtual int traceTree();
+    virtual int traceTree() ;
 };
 
 #endif
