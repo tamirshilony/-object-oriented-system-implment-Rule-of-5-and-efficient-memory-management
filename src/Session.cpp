@@ -61,10 +61,6 @@ void Session::setGraph(const Graph &graph){
 }
 const Graph & Session::getGraph() const {return g;}
 
-//std::vector<int> Session::getNonInfNeighbors(int node) {
-//    return g.getNonInfNeighbors(node);
-//}
-
 
 //Agent actions
 void Session::infectNode(int node){//should update node as infected

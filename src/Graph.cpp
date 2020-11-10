@@ -28,6 +28,21 @@ std::vector<int> Graph::getNonInfNeighbors(int nodeInd) {
 Tree * Graph::BFS(int nodeInd, const Session &session) {
     Tree* currTree = Tree::createTree(session,nodeInd);
     //BFS implement
+    vector<bool>visited(edges.size(), false);
+    vector<int>q;
+    q.push_back(nodeInd);
+    visited[nodeInd] = true;
+    int currNode;
+    while (!q.empty()){
+        currNode = q[0];
+        q.erase(q.cbegin());
+        for (int i = 0; i < edges.size(); ++i) {
+            if (edges[currNode][i]== 1 and (!visited[i])){
+                q.push_back(i);
+                visited[i] = true;
+            }
+        }
+    }
 
     return currTree;
 }
