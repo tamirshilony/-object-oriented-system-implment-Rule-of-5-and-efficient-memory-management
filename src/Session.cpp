@@ -69,6 +69,9 @@ const int Session::getCycle() const {return cycleNum;}
 void Session::infectNode(int node){//should update node as infected
     g.infectNode(node);
 }
+bool Session::isInfected(int node) {
+    return g.isInfected(node);
+}
 
 int Session::dequeueInfected() {
     int next = infected.front();
@@ -84,14 +87,36 @@ TreeType Session::getTreeType() const {
 }
 
 bool Session::isFinish() {
-    for (int i = 0; i < components.size(); ++i) {
-
-    }
-}
-bool Session::allInfected(vector<int> comp) {
     bool ans = true;
-    for (int i = 0; i < comp.size(); ++i) {
-
+    for (int i = 0; i < components.size() and ans; ++i) {
+        if (!allSame(components[i]))
+            ans = false;
+    }
+    return ans;
+}
+//bool Session::allInfected(vector<int> comp) {
+//    bool ans = true;
+//    for (int i = 0; i < comp.size() and ans; ++i) {
+//        if (!isInfected(comp[i]))
+//            ans = false;
+//    }
+//    return ans;
+//}
+//
+//bool Session::allHealth(vector<int> comp) {
+//    bool ans = true;
+//    for (int i = 0; i < comp.size() and ans; ++i) {
+//        if (isInfected(comp[i]))
+//            ans = false;
+//    }
+//    return ans;
+//}
+bool Session::allSame(vector<int> comp) {
+    bool ans =true;
+    bool first = isInfected(comp[0]);
+    for (int i = 1; i < comp.size() and ans; ++i) {
+        if (isInfected(comp[i]) != first)
+            ans = false;
     }
 }
 

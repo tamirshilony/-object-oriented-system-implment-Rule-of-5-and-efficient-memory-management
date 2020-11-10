@@ -44,6 +44,7 @@ public:
 
     //new method
     void infectNode(int node); //should update node as infected
+    bool isInfected(int node); //check if node was infected
     TreeType getTreeType() const;
     
 private:
@@ -56,8 +57,9 @@ private:
     int cycleNum;
     std::vector<vector<int>> components;
     bool isFinish();
-    bool allInfected(vector<int> comp);
-    bool allhealth(vector<int> comp);
+//    bool allInfected(vector<int> comp);
+//    bool allHealth(vector<int> comp);
+    bool allSame(vector<int>comp);
 };
 
 #endif
