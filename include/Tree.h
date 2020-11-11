@@ -9,6 +9,14 @@ class Session;
 
 class Tree{
 public:
+    //rule of five
+    Tree(const Tree& other);
+    Tree & operator=(const Tree &other);
+    virtual ~Tree();
+    Tree(Tree&& other);
+    Tree & operator=(Tree &&other);
+
+
     Tree(int rootLabel);
     virtual Tree * clone() const= 0;
     void addChild(const Tree& child);
