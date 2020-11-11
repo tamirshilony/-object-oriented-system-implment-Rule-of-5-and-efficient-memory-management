@@ -21,6 +21,7 @@ public:
     void removeEdges(int nodeInd);
     vector<vector<int>> findComponents()const;
 
+
 private:
     std::vector<std::vector<int>> edges;
     //new field

@@ -11,7 +11,7 @@ void Tree::addChild(const Tree &child) {
 
 const int Tree::getNode() const {
     return node;
-}CycleTree
+}
 
 Tree* Tree::createTree(const Session& session, int rootLabel){
     TreeType treeType = session.getTreeType();
