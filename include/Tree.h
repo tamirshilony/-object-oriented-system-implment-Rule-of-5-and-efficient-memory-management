@@ -14,10 +14,10 @@ public:
     void addChild(const Tree& child);
     const int getNode() const;
 
-
-
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
+
+
 protected:
     int node;
     std::vector<Tree*> children;
