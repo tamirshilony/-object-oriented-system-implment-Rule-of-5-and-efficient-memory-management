@@ -32,15 +32,18 @@ Tree *MaxRankTree::clone() const {
     return new MaxRankTree(*this);
 }
 int MaxRankTree::traceTree(){
-    //Return max rank node
+
 }
 
 //CYCLE TREE
 CycleTree::CycleTree(int rootLabel, int currCycle): Tree(rootLabel), currCycle(currCycle){}
 Tree *CycleTree::clone() const {
-        return new CycleTree(*this);
+    return new CycleTree(*this);
 }
 int CycleTree::traceTree(){
+    int stepsLeft = currCycle;
+    Tree childTree = children.front();
+    while(!children.empty() && stepsLeft)
 
 }
 
