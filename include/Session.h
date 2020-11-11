@@ -57,8 +57,6 @@ private:
     int cycleNum;
     std::vector<vector<int>> components;
     bool isFinish();
-//    bool allInfected(vector<int> comp);
-//    bool allHealth(vector<int> comp);
     bool allSame(vector<int>comp);
 };
 

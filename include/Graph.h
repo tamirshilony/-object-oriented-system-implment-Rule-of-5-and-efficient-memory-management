@@ -17,7 +17,6 @@ public:
     //new methods
     std::vector<int> getNonInfNeighbors(int nodeInd) ;
     Tree* BFS(int nodeInd,const Session& session)const;
-    void clear();
     void removeEdges(int nodeInd);
     vector<vector<int>> findComponents()const;
 

@@ -94,23 +94,7 @@ bool Session::isFinish() {
     }
     return ans;
 }
-//bool Session::allInfected(vector<int> comp) {
-//    bool ans = true;
-//    for (int i = 0; i < comp.size() and ans; ++i) {
-//        if (!isInfected(comp[i]))
-//            ans = false;
-//    }
-//    return ans;
-//}
-//
-//bool Session::allHealth(vector<int> comp) {
-//    bool ans = true;
-//    for (int i = 0; i < comp.size() and ans; ++i) {
-//        if (isInfected(comp[i]))
-//            ans = false;
-//    }
-//    return ans;
-//}
+
 bool Session::allSame(vector<int> comp) {
     bool ans =true;
     bool first = isInfected(comp[0]);
@@ -135,7 +119,8 @@ Session & Session::operator=(const Session &other) {
         treeType = other.treeType;
         infected = other.infected;
         for (int i = 0; i < agents.size(); ++i) {
-            delete agents[i];
+            if (agents[i] != nullptr)
+                delete agents[i];
         }
         for (int i = 0; i < other.agents.size(); ++i) {
             this->addAgent(*other.agents[i]);
@@ -145,7 +130,8 @@ Session & Session::operator=(const Session &other) {
 }
 Session::~Session() {
     for (int i = 0; i < agents.size(); ++i) {
-        delete agents[i];
+        if (agents[i] != nullptr)
+            delete agents[i];
     }
 }
 Session::Session(Session &&other):
@@ -161,7 +147,8 @@ Session & Session::operator=(Session &&other) {
         treeType = other.treeType;
         infected = other.infected;
         for (int i = 0; i < agents.size(); ++i) {
-            delete agents[i];
+            if (agents[i] != nullptr)
+                delete agents[i];
         }
         agents = other.agents;
         for (int i = 0; i < other.agents.size(); ++i) {

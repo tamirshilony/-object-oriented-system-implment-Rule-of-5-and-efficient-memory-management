@@ -48,9 +48,7 @@ Tree * Graph::BFS(int nodeInd, const Session &session)const {
 
     return currTree;
 }
-void Graph::clear() {
-    edges.clear();
-}
+
 
 void Graph::removeEdges(int nodeInd) {
     for (int i = 0; i < edges[nodeInd].size(); ++i) {
