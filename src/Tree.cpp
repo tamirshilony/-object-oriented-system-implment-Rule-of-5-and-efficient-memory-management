@@ -17,7 +17,7 @@ Tree* Tree::createTree(const Session& session, int rootLabel){
     TreeType treeType = session.getTreeType();
     switch (treeType) {
         case MaxRank:
-            return  new MaxRankTree(rootLabel);
+            return new MaxRankTree(rootLabel);
         case Cycle:
             return new CycleTree(rootLabel, session.getCycle());
         case Root:
