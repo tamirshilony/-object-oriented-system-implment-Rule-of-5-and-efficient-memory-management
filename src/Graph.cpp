@@ -17,7 +17,7 @@ bool Graph::isInfected(int nodeInd) {
     return infectedNode[nodeInd];
 }
 
-std::vector<int> Graph::getNonInfNeighbors(int nodeInd) const{
+std::vector<int> Graph::getNonInfNeighbors(int nodeInd) {
     vector<int> Neighbors;
     for(int i =0;i<edges[nodeInd].size();i++){
         if (edges[nodeInd][i]==1 and !isInfected(i))
