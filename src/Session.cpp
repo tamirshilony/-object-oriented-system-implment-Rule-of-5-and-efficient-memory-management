@@ -39,17 +39,31 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
         }
 
     }
+    //finding graph components
     components = g.findComponents();
 }
 
 void Session::simulate() {
-    while (!this->isFinish()){
+    while (!this->isFinish()){//checking termination condition
         int curSize = agents.size();//ensure that new agents wont act
+        //operate the agents
         for(int i = 0;i<curSize;i++){
             agents[i]->act(*this);
         }
-        cycleNum++;
+        cycleNum++; // update cycleNumber
     }
+    //making the output
+    vector<int>infectedNodes;
+    vector<bool>boolInfectedNode = g.getInfected();
+    for (int i = 0; i < boolInfectedNode.size(); ++i) {
+        if (boolInfectedNode[i])
+            infectedNodes.push_back(i);
+    }
+    nlohmann::json j;
+    j["infected"] = infectedNodes;
+    j["graph"] = g.getEdges();
+    ofstream o("output.json");
+    o << j;
 }
 
 void Session::addAgent(const Agent &agent) {
@@ -87,6 +101,9 @@ TreeType Session::getTreeType() const {
 }
 
 bool Session::isFinish() {
+// this function check for termination condition by checking
+// if each connected component is either infected or not
+// using allSame
     bool ans = true;
     for (int i = 0; i < components.size() and ans; ++i) {
         if (!allSame(components[i]))
