@@ -18,7 +18,7 @@ public:
     std::vector<int> getNonInfNeighbors(int nodeInd) ;
     Tree* BFS(int nodeInd,const Session& session)const;
     void removeEdges(int nodeInd);
-    Graph findComponents()const;
+    vector<vector<int>> findComponents()const;
     const vector<vector<int>> getEdges()const;
     const vector<bool> getInfected()const;
 
