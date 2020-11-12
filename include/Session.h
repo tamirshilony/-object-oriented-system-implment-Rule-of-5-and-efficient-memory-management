@@ -55,7 +55,7 @@ private:
     std::queue<int>infected;
 
     int cycleNum;
-    std::vector<std::vector<int>> components;
+    Graph components;
     bool isFinish();
     bool allSame(vector<int>comp);
 };
