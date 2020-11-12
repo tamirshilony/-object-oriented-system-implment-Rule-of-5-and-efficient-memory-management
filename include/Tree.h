@@ -28,13 +28,16 @@ public:
 
     virtual Tree * clone() const= 0;
     void addChild(const Tree& child);
-    const int getNode() const;
+
 
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
 
+    int getNode() const;
+    const std::vector<Tree*> getChildren() const;
 
-protected:
+
+private:
     int node;
     std::vector<Tree*> children;
 };

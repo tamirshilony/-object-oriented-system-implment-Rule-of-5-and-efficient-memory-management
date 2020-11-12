@@ -3,6 +3,8 @@
 //
 
 #include "../include/Tree.h"
+
+
 Tree::Tree(int rootLabel):node(rootLabel),children(){}
 
 //Rule of five
@@ -42,7 +44,6 @@ Tree & Tree::operator=(Tree &&other) {
     }
 }
 
-
 Tree::Tree(Tree &&other):node(other.node),children(other.children) {
     for (int i = 0; i < other.children.size(); ++i) {
         other.children[i] = nullptr;
@@ -55,8 +56,12 @@ void Tree::addChild(const Tree &child) {
     children.push_back(toAdd);
 }
 
-const int Tree::getNode() const {
+int Tree::getNode() const {
     return node;
+}
+
+const std::vector<Tree *> Tree::getChildren() const {
+    return children;
 }
 
 Tree* Tree::createTree(const Session& session, int rootLabel){
@@ -81,6 +86,7 @@ int MaxRankTree::traceTree(){
     return this->recursiveTrace();
 }
 int MaxRankTree::recursiveTrace() {
+    std::vector<Tree*> children = this->getChildren();
     int nChild = children.size();
     if(!nChild)
         return 0;
@@ -104,8 +110,9 @@ int CycleTree::traceTree(){
 }
 
 int CycleTree::recursiveTrace(int stepsLeft) {
+    std::vector<Tree*> children = this->getChildren();
     if(children.empty() or stepsLeft == 0){
-        return node;
+        return Tree::getNode();
     }
     CycleTree *leftChild = dynamic_cast<CycleTree *>(children[0]);
     leftChild->recursiveTrace(stepsLeft-1);
@@ -118,5 +125,5 @@ Tree *RootTree::clone() const {
     return new RootTree(*this);
 }
 int RootTree::traceTree() {
-    return node;
+    return this->getNode();
 }
