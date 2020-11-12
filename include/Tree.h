@@ -9,14 +9,6 @@ class Session;
 
 class Tree{
 public:
-    //rule of five
-    Tree(const Tree& other);
-    Tree & operator=(const Tree &other);
-    virtual ~Tree();
-    Tree(Tree&& other);
-    Tree & operator=(Tree &&other);
-
-
     Tree(int rootLabel);
 
     //Rule of five
@@ -48,7 +40,7 @@ public:
     CycleTree(int rootLabel, int currCycle);
     virtual Tree* clone() const;
     virtual int traceTree() ;
-    int recursiveTrace(stepsLeft);
+    int recursiveTrace(int stepsLeft);
 private:
     int currCycle;
 };

@@ -4,7 +4,7 @@
 #include <vector>
 #include <queue>
 #include <string>
-#include "Graph.h"
+#include "../include/Graph.h"
 
 class Agent;
 
@@ -55,7 +55,7 @@ private:
     std::queue<int>infected;
 
     int cycleNum;
-    std::vector<vector<int>> components;
+    std::vector<std::vector<int>> components;
     bool isFinish();
     bool allSame(vector<int>comp);
 };
