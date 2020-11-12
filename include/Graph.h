@@ -26,7 +26,7 @@ public:
 private:
     std::vector<std::vector<int>> edges;
     //new field
-    vector<bool> infectedNode;const
+    vector<bool> infectedNode;
 };
 
 #endif
