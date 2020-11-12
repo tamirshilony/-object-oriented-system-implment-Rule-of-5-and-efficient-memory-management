@@ -171,8 +171,6 @@ Session & Session::operator=(Session &&other) {
         for (int i = 0; i < other.agents.size(); ++i) {
             agents[i] = nullptr;
         }
-
-
     }
 }
 
