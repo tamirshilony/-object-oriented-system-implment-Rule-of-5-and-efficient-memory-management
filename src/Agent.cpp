@@ -12,42 +12,6 @@ Agent::Agent(){
 }
 
 //Virus
-Virus::Virus(int nodeInd):nodeInd(nodeInd) {
-
-}
-
-Agent * Virus::clone() const{
-    return new Virus(*this);
-}
-
-int Virus::getMin(vector<int> vec){
-    vector<int>::iterator it;
-    int min = vec.at(0);
-    for(int i = 1; i < vec.size(); i++ ){
-        if(min > vec.at(i)){
-            min = vec.at(i);
-        }
-    }
-    return min;
-}
-
-void Virus::act(Session& session) {
-    //1. Get neighbors
-    Graph g = session.getGraph();
-    vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
-    //2. Choose next to infect
-    int minNeighbor = getMin(neighbor); // need to be implemented
-    //3. Change node status and add to queue
-    session.infectNode(minNeighbor);
-    //4. Create new virus
-    Virus *newVirus = new Virus(minNeighbor);
-    //5. Add to agent list
-    session.addAgent(newVirus);
-    //6. Delete resources
-    delete neighbor;
-
-
-}
 
 //ContactTracer
 ContactTracer::ContactTracer() {}
@@ -68,7 +32,35 @@ void ContactTracer::act(Session& session) {
     g.removeEdges(isolateNode);
     //5. Delete resources
     delete t;
-
 }
 
 
+Virus::Virus(int nodeInd):nodeInd(nodeInd) {}
+
+Agent * Virus::clone() const{
+    return new Virus(*this);
+}
+
+void Virus::act(Session& session) {
+    //1. Get neighbors
+    Graph g = session.getGraph();
+    vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
+    //2. Choose next to infect
+    int minNeighbor = getMin(neighbor); // need to be implemented
+    //3. Change node status and add to queue
+    session.infectNode(minNeighbor);
+    //4. Create new virus
+    Virus newVirus = Virus(minNeighbor);
+    //5. Add to agent list
+    session.addAgent(newVirus);
+}
+int Virus::getMin(vector<int> vec){
+    vector<int>::iterator it;
+    int min = vec.at(0);
+    for(int i = 1; i < vec.size(); i++ ){
+        if(min > vec.at(i)){
+            min = vec.at(i);
+        }
+    }
+    return min;
+}

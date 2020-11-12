@@ -50,20 +50,10 @@ Tree::Tree(Tree &&other):node(other.node),children(other.children) {
     }
 }
 
-
 void Tree::addChild(const Tree &child) {
     Tree *toAdd = child.clone();
     children.push_back(toAdd);
 }
-
-int Tree::getNode() const {
-    return node;
-}
-
-const std::vector<Tree *> Tree::getChildren() const {
-    return children;
-}
-
 Tree* Tree::createTree(const Session& session, int rootLabel){
     TreeType treeType = session.getTreeType();
     switch (treeType) {
@@ -74,6 +64,32 @@ Tree* Tree::createTree(const Session& session, int rootLabel){
         case Root:
             return new RootTree(rootLabel);
     }
+}
+
+int Tree::getNode() const {
+    return node;
+}
+const std::vector<Tree *> Tree::getChildren() const {
+    return children;
+}
+
+
+//CYCLE TREE
+CycleTree::CycleTree(int rootLabel, int currCycle): Tree(rootLabel), currCycle(currCycle){}
+Tree *CycleTree::clone() const {
+    return new CycleTree(*this);
+}
+int CycleTree::traceTree(){
+    return this->recursiveTrace(currCycle);
+}
+
+int CycleTree::recursiveTrace(int stepsLeft) {
+    std::vector<Tree*> children = this->getChildren();
+    if(children.empty() or stepsLeft == 0){
+        return Tree::getNode();
+    }
+    CycleTree *leftChild = dynamic_cast<CycleTree *>(children[0]);
+    leftChild->recursiveTrace(stepsLeft-1);
 }
 
 
@@ -98,24 +114,6 @@ int MaxRankTree::recursiveTrace() {
             maxRank = temp;
     }
     return maxRank;
-}
-
-//CYCLE TREE
-CycleTree::CycleTree(int rootLabel, int currCycle): Tree(rootLabel), currCycle(currCycle){}
-Tree *CycleTree::clone() const {
-    return new CycleTree(*this);
-}
-int CycleTree::traceTree(){
-    return this->recursiveTrace(currCycle);
-}
-
-int CycleTree::recursiveTrace(int stepsLeft) {
-    std::vector<Tree*> children = this->getChildren();
-    if(children.empty() or stepsLeft == 0){
-        return Tree::getNode();
-    }
-    CycleTree *leftChild = dynamic_cast<CycleTree *>(children[0]);
-    leftChild->recursiveTrace(stepsLeft-1);
 }
 
 

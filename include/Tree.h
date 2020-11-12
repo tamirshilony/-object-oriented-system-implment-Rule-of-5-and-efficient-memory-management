@@ -27,11 +27,10 @@ public:
     Tree & operator=(Tree &&other);
 
     virtual Tree * clone() const= 0;
-    void addChild(const Tree& child);
-
-
-    static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
+
+    void addChild(const Tree& child);
+    static Tree* createTree(const Session& session, int rootLabel);
 
     int getNode() const;
     const std::vector<Tree*> getChildren() const;
