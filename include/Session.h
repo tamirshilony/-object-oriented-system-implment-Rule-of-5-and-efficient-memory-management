@@ -57,7 +57,7 @@ private:
     int cycleNum;
     Graph components;
     bool isFinish();
-    bool allSame(vector<int>comp);
+    bool allSame(std::vector<int> comp);
 };
 
 #endif

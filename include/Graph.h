@@ -18,13 +18,15 @@ public:
     std::vector<int> getNonInfNeighbors(int nodeInd) ;
     Tree* BFS(int nodeInd,const Session& session)const;
     void removeEdges(int nodeInd);
-    vector<vector<int>> findComponents()const;
+    Graph findComponents()const;
+    const vector<vector<int>> getEdges()const;
+    const vector<bool> getInfected()const;
 
 
 private:
     std::vector<std::vector<int>> edges;
     //new field
-    vector<bool> infectedNode;const
+    vector<bool> infectedNode;
 };
 
 #endif

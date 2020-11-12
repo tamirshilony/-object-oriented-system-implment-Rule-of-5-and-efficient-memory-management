@@ -7,7 +7,12 @@ using namespace std;
 
 Graph::Graph(std::vector<std::vector<int>> matrix):edges(matrix),infectedNode(matrix.size(), false){
 }
-
+const vector<vector<int>> Graph::getEdges() const {
+    return edges;
+}
+const vector<bool> Graph::getInfected() const {
+    return infectedNode;
+}
 
 void Graph::infectNode(int nodeInd) {
     infectedNode[nodeInd] = true;
@@ -58,7 +63,7 @@ void Graph::removeEdges(int nodeInd) {
         }
     }
 }
-vector<vector<int>> Graph::findComponents() const{
+Graph Graph::findComponents() const{
     vector<vector<int>> componentMatrix;
     int componentNum = 0;
     vector<bool>visited(edges.size(),false);
@@ -82,5 +87,5 @@ vector<vector<int>> Graph::findComponents() const{
             componentNum++;
         }
     }
-    return componentMatrix;
+    return Graph(componentMatrix);
 }
