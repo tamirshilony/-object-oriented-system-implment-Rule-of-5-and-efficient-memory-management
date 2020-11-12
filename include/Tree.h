@@ -27,14 +27,16 @@ public:
     Tree & operator=(Tree &&other);
 
     virtual Tree * clone() const= 0;
-    void addChild(const Tree& child);
-    const int getNode() const;
-
-    static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
 
+    void addChild(const Tree& child);
+    static Tree* createTree(const Session& session, int rootLabel);
 
-protected:
+    int getNode() const;
+    const std::vector<Tree*> getChildren() const;
+
+
+private:
     int node;
     std::vector<Tree*> children;
 };

@@ -2,7 +2,7 @@
 #define GRAPH_H_
 
 #include <vector>
-#include "Tree.h"
+#include "../include/Tree.h"
 
 using namespace std;
 
