@@ -55,7 +55,7 @@ private:
     std::queue<int>infected;
 
     int cycleNum;
-    std::vector<vectoe<int>> components;
+    std::vector<std::vector<int>> components;
     bool isFinish();
     bool allSame(std::vector<int> comp);
 };
