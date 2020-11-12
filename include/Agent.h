@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Session.h"
+class Session;
 //Agent
 class Agent{
 public:
