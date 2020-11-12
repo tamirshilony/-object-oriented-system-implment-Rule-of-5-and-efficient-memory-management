@@ -19,7 +19,8 @@ public:
     Tree* BFS(int nodeInd,const Session& session)const;
     void removeEdges(int nodeInd);
     vector<vector<int>> findComponents()const;
-    const vector<vector<int>> getEdges()const ;
+    const vector<vector<int>> getEdges()const;
+    const vector<bool> getInfected()const;
 
 private:
     std::vector<std::vector<int>> edges;

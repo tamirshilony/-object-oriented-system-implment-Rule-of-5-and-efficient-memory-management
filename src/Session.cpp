@@ -52,11 +52,12 @@ void Session::simulate() {
         }
         cycleNum++; // update cycleNumber
     }
-    vector<int> infectedNodes;
-    for(auto agent:agents){
-        if(Virus *v =dynamic_cast<Virus*>(agent)){
-            infectedNodes.push_back(v->getNode);
-        }
+    //making the output
+    vector<int>infectedNodes;
+    vector<bool>boolInfectedNode = g.getInfected();
+    for (int i = 0; i < boolInfectedNode.size(); ++i) {
+        if (boolInfectedNode[i])
+            infectedNodes.push_back(i);
     }
     nlohmann::json j;
     j["infected"] = infectedNodes;
