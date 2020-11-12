@@ -22,6 +22,7 @@ public:
     const vector<vector<int>> getEdges()const;
     const vector<bool> getInfected()const;
 
+
 private:
     std::vector<std::vector<int>> edges;
     //new field

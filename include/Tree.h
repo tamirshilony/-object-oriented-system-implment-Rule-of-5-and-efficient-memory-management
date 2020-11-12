@@ -18,6 +18,14 @@ public:
 
 
     Tree(int rootLabel);
+
+    //Rule of five
+    Tree(const Tree& other);
+    Tree & operator=(const Tree &other);
+    virtual ~Tree();
+    Tree(Tree&& other);
+    Tree & operator=(Tree &&other);
+
     virtual Tree * clone() const= 0;
     void addChild(const Tree& child);
     const int getNode() const;
@@ -38,6 +46,7 @@ public:
     CycleTree(int rootLabel, int currCycle);
     virtual Tree* clone() const;
     virtual int traceTree() ;
+    int recursiveTrace(stepsLeft);
 private:
     int currCycle;
 };
@@ -48,6 +57,7 @@ public:
     MaxRankTree(int rootLabel);
     virtual Tree* clone() const;
     virtual int traceTree() ;
+    int recursiveTrace();
 };
 
 //ROOT TREE
