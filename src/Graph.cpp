@@ -7,7 +7,9 @@ using namespace std;
 
 Graph::Graph(std::vector<std::vector<int>> matrix):edges(matrix),infectedNode(matrix.size(), false){
 }
-
+const vector<vector<int>> Graph::getEdges() const {
+    return edges;
+}
 
 void Graph::infectNode(int nodeInd) {
     infectedNode[nodeInd] = true;
