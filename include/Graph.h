@@ -2,7 +2,8 @@
 #define GRAPH_H_
 
 #include <vector>
-#include "../include/Tree.h"
+#include "Tree.h"
+
 
 using namespace std;
 
@@ -10,6 +11,7 @@ class Graph{
 public:
 
     Graph(std::vector<std::vector<int>> matrix);
+    Graph();
     
     void infectNode(int nodeInd);
     bool isInfected(int nodeInd);

@@ -4,9 +4,14 @@
 #include <vector>
 #include <queue>
 #include <string>
-#include "../include/Graph.h"
+#include "Graph.h"
+#include "Agent.h"
+#include "json.hpp"
+#include <iostream>
+#include <fstream>
 
 class Agent;
+//class Graph;
 
 enum TreeType{
   Cycle,

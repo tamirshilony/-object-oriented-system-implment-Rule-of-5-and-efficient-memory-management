@@ -3,11 +3,12 @@
 //
 
 #include "../include/Graph.h"
+#include <vector>
 using namespace std;
 
 Graph::Graph(std::vector<std::vector<int>> matrix):edges(matrix),infectedNode(matrix.size(), false){
 }
-
+Graph::Graph() :edges(),infectedNode(){}
 
 void Graph::infectNode(int nodeInd) {
     infectedNode[nodeInd] = true;
@@ -83,4 +84,11 @@ vector<vector<int>> Graph::findComponents() const{
         }
     }
     return componentMatrix;
+}
+
+const vector<bool> Graph::getInfected() const {
+    return infectedNode;
+}
+const vector<vector<int>> Graph::getEdges() const {
+    return edges;
 }
