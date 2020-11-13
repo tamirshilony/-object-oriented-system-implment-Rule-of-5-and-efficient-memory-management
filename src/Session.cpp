@@ -7,8 +7,8 @@
 using namespace std;
 using json = nlohmann::json ;
 
-Session::Session(const std::string &path):g(),agents(),infected(),components() {
-    cycleNum = 0;
+Session::Session(const std::string &path):g(),agents(),
+infected(),components(),cycleNum(0) {
     //import the json file
     ifstream inputJ(path);
     json j;
@@ -40,7 +40,9 @@ Session::Session(const std::string &path):g(),agents(),infected(),components() {
 }
 
 void Session::simulate() {
-    while (!this->isFinish()){//checking termination condition
+    bool init = true;
+    while (!this->isFinish() or init ){//checking termination condition
+        init = false;
         int curSize = agents.size();//ensure that new agents wont act
         //operate the agents
         for(int i = 0;i<curSize;i++){
@@ -55,11 +57,12 @@ void Session::simulate() {
         if (boolInfectedNode[i])
             infectedNodes.push_back(i);
     }
-    nlohmann::json j;
-    j["infected"] = infectedNodes;
-    j["graph"] = g.getEdges();
-    ofstream o("output.json");
-    o << j;
+    nlohmann::json l;
+    l["infected"] = infectedNodes;
+    l["graph"] = g.getEdges();
+    ofstream o("output1.json");
+    o << l;
+    o.close();
 }
 
 void Session::addAgent(const Agent &agent) {
