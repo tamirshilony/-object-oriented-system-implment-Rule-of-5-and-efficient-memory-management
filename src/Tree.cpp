@@ -77,6 +77,7 @@ const std::vector<Tree *> Tree::getChildren() const {
 
 //CYCLE TREE
 CycleTree::CycleTree(int rootLabel, int currCycle): Tree(rootLabel), currCycle(currCycle){}
+CycleTree::CycleTree(const CycleTree &other): Tree(other), currCycle(currCycle){}
 Tree *CycleTree::clone() const {
     return new CycleTree(*this);
 }
@@ -96,6 +97,7 @@ int CycleTree::recursiveTrace(int stepsLeft) {
 
 //MAX RANK TREE
 MaxRankTree::MaxRankTree(int rootLabel): Tree(rootLabel){}
+MaxRankTree::MaxRankTree(const MaxRankTree &other):Tree(other) {}
 Tree *MaxRankTree::clone() const {
     return new MaxRankTree(*this);
 }
@@ -120,6 +122,7 @@ int MaxRankTree::recursiveTrace() {
 
 //ROOT TREE
 RootTree::RootTree(int rootLabel):Tree(rootLabel) {}
+RootTree::RootTree(const RootTree &other): Tree(other) {}
 Tree *RootTree::clone() const {
     return new RootTree(*this);
 }

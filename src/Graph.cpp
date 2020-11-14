@@ -21,7 +21,7 @@ bool Graph::isInfected(int nodeInd) {
 }
 
 std::vector<int> Graph::getNonInfNeighbors(int nodeInd) {
-    vector<int> Neighbors;
+    vector<int> Neighbors = vector<int>(0);
     for(int i =0;i<edges[nodeInd].size();i++){
         if (edges[nodeInd][i]==1 and !isInfected(i))
             Neighbors.push_back(i);
@@ -30,26 +30,27 @@ std::vector<int> Graph::getNonInfNeighbors(int nodeInd) {
 }
 Tree * Graph::BFS(int nodeInd, const Session &session)const {
     Tree* currTree = Tree::createTree(session,nodeInd);
+    Tree &toReturn = *currTree;
     //BFS implement
     vector<bool>visited(edges.size(), false);
-    vector<int>q;
-    q.push_back(nodeInd);
+    vector<Tree*>q;
+    q.push_back(currTree);
     visited[nodeInd] = true;
-    int currNode;
     while (!q.empty()){
-        currNode = q[0];
+        currTree = q[0];
+        int nodeInd = currTree->getNode();
         q.erase(q.cbegin());
         for (int i = 0; i < edges.size(); ++i) {
-            if (edges[currNode][i]== 1 and (!visited[i])){
-                q.push_back(i);
+            if (edges[nodeInd][i]== 1 and (!visited[i])){
                 visited[i] = true;
                 Tree* nextTree = Tree::createTree(session,i);
                 currTree->addChild(*nextTree);
+                q.push_back(nextTree);
             }
         }
     }
 
-    return currTree;
+    return &toReturn;
 }
 
 
@@ -113,4 +114,5 @@ bool Graph::isCompUniform(vector<int> comp) {
         if (isInfected(comp[i]) != first)
             ans = false;
     }
+    return ans;
 }

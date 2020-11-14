@@ -41,13 +41,13 @@ Agent * Virus::clone() const{
 }
 
 void Virus::act(Session& session) {
+    //Infect node
+    session.infectNode(nodeInd);
     //1. Get neighbors
     Graph g = session.getGraph();
     vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
     //2. Choose next to infect
     int minNeighbor = getMin(neighbor); // need to be implemented
-    //3. Change node status and add to queue
-    session.infectNode(minNeighbor);
     //4. Create new virus
     Virus newVirus = Virus(minNeighbor);
     //5. Add to agent list
