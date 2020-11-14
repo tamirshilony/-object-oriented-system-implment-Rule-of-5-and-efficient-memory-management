@@ -4,7 +4,11 @@
 #include <vector>
 #include <queue>
 #include <string>
-#include "../include/Graph.h"
+#include <iostream>
+#include <fstream>
+#include "json.hpp"
+#include "Graph.h"
+#include "Agent.h"
 
 class Agent;
 
@@ -30,19 +34,15 @@ public:
     void addAgent(const Agent& agent);
 
     //Graph methods
-
     void setGraph(const Graph& graph);
 
-    //new method
     const Graph& getGraph() const;
     const int getCycle()const;
 
     //Agent actions
-
     void enqueueInfected(int node);
     int dequeueInfected();
 
-    //new method
     void infectNode(int node); //should update node as infected
     bool isInfected(int node); //check if node was infected
     TreeType getTreeType() const;
@@ -53,11 +53,8 @@ private:
     std::vector<Agent*> agents;
     //new fields
     std::queue<int>infected;
-
     int cycleNum;
-    std::vector<vectoe<int>> components;
-    bool isFinish();
-    bool allSame(std::vector<int> comp);
+
 };
 
 #endif

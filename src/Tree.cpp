@@ -3,6 +3,7 @@
 //
 
 #include "../include/Tree.h"
+#include "../include/Session.h"
 
 
 Tree::Tree(int rootLabel):node(rootLabel),children(){}

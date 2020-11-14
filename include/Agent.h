@@ -1,8 +1,8 @@
 #ifndef AGENT_H_
 #define AGENT_H_
 
-#include <vector>
 #include "Session.h"
+
 //Agent
 class Agent{
 public:

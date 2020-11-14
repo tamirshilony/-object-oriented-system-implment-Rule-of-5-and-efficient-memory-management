@@ -3,11 +3,12 @@
 //
 
 #include "../include/Graph.h"
+
 using namespace std;
 
-Graph::Graph(std::vector<std::vector<int>> matrix):edges(matrix),infectedNode(matrix.size(), false){
+Graph::Graph(std::vector<std::vector<int>> matrix):edges(matrix),infectedNode(matrix.size(), false),components(){
+    components = findComponentsBFS();
 }
-
 
 void Graph::infectNode(int nodeInd) {
     infectedNode[nodeInd] = true;
@@ -58,7 +59,7 @@ void Graph::removeEdges(int nodeInd) {
         }
     }
 }
-vector<vector<int>> Graph::findComponents() const{
+vector<vector<int>> Graph::findComponentsBFS() const{
     vector<vector<int>> componentMatrix;
     int componentNum = 0;
     vector<bool>visited(edges.size(),false);
@@ -76,11 +77,36 @@ vector<vector<int>> Graph::findComponents() const{
                         visited[j] = true;
                         componentMatrix[componentNum].push_back(j);
                     }
-
                 }
             }
             componentNum++;
         }
     }
     return componentMatrix;
+}
+
+const vector<vector<int>> Graph::getEdges() const {
+    return edges;
+}
+
+const vector<bool> Graph::getInfected() const {
+    return infectedNode;
+}
+
+bool Graph::areCompsUniform() {
+    bool ans = true;
+    for (int i = 0; i < components.size() and ans; ++i) {
+        if (!isCompUniform(components[i]))
+            ans = false;
+    }
+    return ans;
+}
+
+bool Graph::isCompUniform(vector<int> comp) {
+    bool ans =true;
+    bool first = isInfected(comp[0]);
+    for (int i = 1; i < comp.size() and ans; ++i) {
+        if (isInfected(comp[i]) != first)
+            ans = false;
+    }
 }

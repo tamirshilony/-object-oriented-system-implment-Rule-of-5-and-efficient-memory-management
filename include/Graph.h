@@ -1,8 +1,7 @@
 #ifndef GRAPH_H_
 #define GRAPH_H_
 
-#include <vector>
-#include "../include/Tree.h"
+#include "Tree.h"
 
 using namespace std;
 
@@ -18,15 +17,19 @@ public:
     std::vector<int> getNonInfNeighbors(int nodeInd) ;
     Tree* BFS(int nodeInd,const Session& session)const;
     void removeEdges(int nodeInd);
-    vector<vector<int>> findComponents()const;
+    vector<vector<int>> findComponentsBFS()const;
     const vector<vector<int>> getEdges()const;
     const vector<bool> getInfected()const;
+    bool areCompsUniform();
 
 
 private:
     std::vector<std::vector<int>> edges;
     //new field
     vector<bool> infectedNode;
+    std::vector<std::vector<int>>components;
+
+    bool isCompUniform(vector<int> comp);
 };
 
 #endif
