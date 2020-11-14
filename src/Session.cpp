@@ -10,7 +10,7 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
     //import the json file
     ifstream inputJ(path);
     json j;
-    j << inputJ;
+    inputJ >> j  ;
     //init the cur graph
     g = Graph(j["graph"]);
     //checking and setting the tree type
