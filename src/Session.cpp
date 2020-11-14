@@ -8,11 +8,13 @@ using json = nlohmann::json ;
 
 Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infected(),cycleNum(0){
     //import the json file
-    ifstream inputJ(path);
+    std::ifstream inputJ(path);
     json j;
-    inputJ >> j  ;
+    inputJ >> j ;
+    cout << (j["graph"]) << endl;
     //init the cur graph
-    g = Graph(j["graph"]);
+    vector<vector<int>> jGraph = j["graph"];
+    g = Graph(jGraph);
     //checking and setting the tree type
     string tree = j["tree"];
     if (tree == "C")
@@ -37,7 +39,7 @@ Session::Session(const std::string &path):g(vector<vector<int>>()),agents(),infe
 }
 
 void Session::simulate() {
-    bool init =true;
+    bool init = true;
     while (!g.areCompsUniform() or init){//checking termination condition
         init = false;
         int curSize = agents.size();//ensure that new agents wont act
@@ -147,6 +149,7 @@ Session & Session::operator=(Session &&other) {
             agents[i] = nullptr;
         }
     }
+    return *this;
 }
 
 

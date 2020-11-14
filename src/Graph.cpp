@@ -6,7 +6,9 @@
 
 using namespace std;
 
-Graph::Graph(std::vector<std::vector<int>> matrix):edges(matrix),infectedNode(matrix.size(), false),components(){
+Graph::Graph(std::vector<std::vector<int>> matrix):edges(),infectedNode(),components(){
+    edges =  matrix;
+    infectedNode = vector<bool>(matrix.size(), false);
     components = findComponentsBFS();
 }
 
@@ -60,8 +62,9 @@ void Graph::removeEdges(int nodeInd) {
     }
 }
 vector<vector<int>> Graph::findComponentsBFS() const{
-    vector<vector<int>> componentMatrix;
+    vector<vector<int>> componentMatrix = vector<vector<int>>(1);
     int componentNum = 0;
+    std::cout << edges.size() << std::endl;
     vector<bool>visited(edges.size(),false);
     for (int i = 0; i < edges.size(); ++i) {
         if (!visited[i]) {
@@ -72,12 +75,13 @@ vector<vector<int>> Graph::findComponentsBFS() const{
             while (!q.empty()) {
                 q.erase(q.cbegin());
                 for (int j = 0; j < edges.size(); j++) {
-                    if (edges[i][j] == 1 and (!visited[i])) {
+                    if (edges[i][j] == 1 and (!visited[j])) {
                         q.push_back(j);
                         visited[j] = true;
                         componentMatrix[componentNum].push_back(j);
                     }
                 }
+                i++;
             }
             componentNum++;
         }

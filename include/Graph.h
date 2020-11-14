@@ -2,6 +2,7 @@
 #define GRAPH_H_
 
 #include "Tree.h"
+#include "iostream"
 
 using namespace std;
 
