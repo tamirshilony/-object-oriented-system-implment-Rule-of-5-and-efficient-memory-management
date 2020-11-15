@@ -21,7 +21,7 @@ public:
     vector<vector<int>> findComponentsBFS()const;
     const vector<vector<int>> getEdges()const;
     const vector<bool> getInfected()const;
-    bool areCompsUniform();
+    bool areCompsUniform(vector<bool> hasVirus);
 
 
 private:
@@ -31,6 +31,7 @@ private:
     std::vector<std::vector<int>>components;
 
     bool isCompUniform(vector<int> comp);
+    bool isCompVirusFree(vector<int> comp , vector<bool>hasVirus);
 };
 
 #endif
