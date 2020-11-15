@@ -22,15 +22,17 @@ Agent * ContactTracer::clone() const{
 void ContactTracer::act(Session& session) {
     //1. Dequeue next infected
     int nextInf = session.dequeueInfected();
-    //2. Create tree from graph
-    Graph g = session.getGraph();
-    Tree  *t = g.BFS(nextInf, session);
-    //3. Trace tree
-    int isolateNode = t->traceTree();
-    //4. Remove edges
-    g.removeEdges(isolateNode);
-    //5. Delete resources
-    delete t;
+    if(nextInf != -1) {
+        //2. Create tree from graph
+        Graph &g = session.getGraph();
+        Tree *t = g.BFS(nextInf, session);
+        //3. Trace tree
+        int isolateNode = t->traceTree();
+        //4. Remove edges
+        g.removeEdges(isolateNode);
+        //5. Delete resources
+        delete t;
+    }
 }
 
 
@@ -41,17 +43,23 @@ Agent * Virus::clone() const{
 }
 
 void Virus::act(Session& session) {
-    //Infect node
-    session.infectNode(nodeInd);
-    //1. Get neighbors
-    Graph g = session.getGraph();
+    const Graph g = session.getGraph();
+    //1.Infect node
+    if(!g.isInfected(nodeInd))
+        session.infectNode(nodeInd);
+    //2. Get neighbors
     vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
-    //2. Choose next to infect
-    int minNeighbor = getMin(neighbor); // need to be implemented
-    //4. Create new virus
-    Virus newVirus = Virus(minNeighbor);
-    //5. Add to agent list
-    session.addAgent(newVirus);
+    //3. Choose next to infect
+    if(neighbor.size() != 0) {
+        int minNeighbor = getMin(neighbor); // need to be implemented
+        //4. Create new virus
+        if(!session.checkVirus(minNeighbor)) {
+            Virus newVirus = Virus(minNeighbor);
+            //5. Add to agent list
+            session.addAgent(newVirus);
+            session.addVirus(minNeighbor);
+        }
+    }
 }
 int Virus::getMin(vector<int> vec){
     vector<int>::iterator it;

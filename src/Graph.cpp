@@ -16,17 +16,17 @@ void Graph::infectNode(int nodeInd) {
     infectedNode[nodeInd] = true;
 }
 
-bool Graph::isInfected(int nodeInd) {
+bool Graph::isInfected(int nodeInd) const{
     return infectedNode[nodeInd];
 }
 
-std::vector<int> Graph::getNonInfNeighbors(int nodeInd) {
-    vector<int> Neighbors = vector<int>(0);
+std::vector<int> Graph::getNonInfNeighbors(int nodeInd) const{
+    vector<int> neighbors;
     for(int i =0;i<edges[nodeInd].size();i++){
         if (edges[nodeInd][i]==1 and !isInfected(i))
-            Neighbors.push_back(i);
+            neighbors.push_back(i);
     }
-    return Neighbors;
+    return neighbors;
 }
 Tree * Graph::BFS(int nodeInd, const Session &session)const {
     Tree* currTree = Tree::createTree(session,nodeInd);
@@ -54,7 +54,7 @@ Tree * Graph::BFS(int nodeInd, const Session &session)const {
 }
 
 
-void Graph::removeEdges(int nodeInd) {
+void Graph::removeEdges(int nodeInd)  {
     for (int i = 0; i < edges[nodeInd].size(); ++i) {
         if (edges[nodeInd][i]==1) {
             edges[nodeInd][i] = 0;
@@ -63,28 +63,28 @@ void Graph::removeEdges(int nodeInd) {
     }
 }
 vector<vector<int>> Graph::findComponentsBFS() const{
-    vector<vector<int>> componentMatrix = vector<vector<int>>(1);
-    int componentNum = 0;
-    std::cout << edges.size() << std::endl;
+    vector<vector<int>> componentMatrix;
     vector<bool>visited(edges.size(),false);
     for (int i = 0; i < edges.size(); ++i) {
         if (!visited[i]) {
-            componentMatrix[componentNum].push_back(i);
+            vector<int> currComp;
+            currComp.push_back(i);
             vector<int> q;
             q.push_back(i);
             visited[i] = true;
             while (!q.empty()) {
+                int k = q[0];
                 q.erase(q.cbegin());
                 for (int j = 0; j < edges.size(); j++) {
-                    if (edges[i][j] == 1 and (!visited[j])) {
+                    if (edges[k][j] == 1 and (!visited[j])) {
                         q.push_back(j);
                         visited[j] = true;
-                        componentMatrix[componentNum].push_back(j);
+                        currComp.push_back(j);
                     }
                 }
-                i++;
+
             }
-            componentNum++;
+            componentMatrix.push_back(currComp);
         }
     }
     return componentMatrix;
@@ -99,6 +99,7 @@ const vector<bool> Graph::getInfected() const {
 }
 
 bool Graph::areCompsUniform() {
+    components = findComponentsBFS();
     bool ans = true;
     for (int i = 0; i < components.size() and ans; ++i) {
         if (!isCompUniform(components[i]))

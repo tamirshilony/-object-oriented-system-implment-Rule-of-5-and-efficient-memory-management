@@ -37,6 +37,7 @@ public:
     void setGraph(const Graph& graph);
 
     const Graph& getGraph() const;
+    Graph& getGraph();
     const int getCycle()const;
 
     //Agent actions
@@ -45,6 +46,8 @@ public:
 
     void infectNode(int node); //should update node as infected
     bool isInfected(int node); //check if node was infected
+    bool checkVirus(int nodeInd);
+    void addVirus(int nodeInd);
     TreeType getTreeType() const;
     
 private:
@@ -53,6 +56,7 @@ private:
     std::vector<Agent*> agents;
     //new fields
     std::queue<int>infected;
+    std::vector<bool>hasVirus;
     int cycleNum;
 
 };

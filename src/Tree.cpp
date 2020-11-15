@@ -122,7 +122,7 @@ int MaxRankTree::recursiveTrace(int maxNode ,int maxRank) {
 //        if(temp > maxRank) {
 //            maxRank = temp;
 //            MaxNode = i;
-//        }
+//        }maxNode = this->getNode();
 //        delete nextChild;
     }
 //    return maxRank;

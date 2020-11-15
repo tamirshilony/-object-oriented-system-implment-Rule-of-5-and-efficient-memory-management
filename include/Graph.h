@@ -12,10 +12,10 @@ public:
     Graph(std::vector<std::vector<int>> matrix);
     
     void infectNode(int nodeInd);
-    bool isInfected(int nodeInd);
+    bool isInfected(int nodeInd) const;
 
     //new methods
-    std::vector<int> getNonInfNeighbors(int nodeInd) ;
+    std::vector<int> getNonInfNeighbors(int nodeInd) const;
     Tree* BFS(int nodeInd,const Session& session)const;
     void removeEdges(int nodeInd);
     vector<vector<int>> findComponentsBFS()const;
