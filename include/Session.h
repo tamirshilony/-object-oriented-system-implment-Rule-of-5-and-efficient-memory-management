@@ -40,6 +40,7 @@ public:
     Graph& getGraph();
     const int getCycle()const;
 
+
     //Agent actions
     void enqueueInfected(int node);
     int dequeueInfected();

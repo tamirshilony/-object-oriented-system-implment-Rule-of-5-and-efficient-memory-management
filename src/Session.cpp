@@ -41,7 +41,7 @@ g(vector<vector<int>>()),agents(),infected(),cycleNum(0),hasVirus(){
 
 void Session::simulate() {
     bool init = true;
-    while (!g.areCompsUniform() or init){//checking termination condition
+    while (!g.areCompsUniform(hasVirus) or init){//checking termination condition
         init = false;
         int curSize = agents.size();//ensure that new agents wont act
         //operate the agents
