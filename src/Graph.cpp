@@ -45,11 +45,11 @@ Tree * Graph::BFS(int nodeInd, const Session &session)const {
                 visited[i] = true;
                 Tree* nextTree = Tree::createTree(session,i);
                 currTree->addChild(*nextTree);
-                q.push_back(nextTree);
+                delete nextTree;
+                q.push_back(currTree->getChildren().back());
             }
         }
     }
-
     return &toReturn;
 }
 

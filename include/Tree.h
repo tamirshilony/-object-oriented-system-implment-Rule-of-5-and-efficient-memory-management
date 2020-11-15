@@ -51,7 +51,7 @@ public:
     MaxRankTree(const MaxRankTree &other);
     virtual Tree* clone() const;
     virtual int traceTree() ;
-    int recursiveTrace();
+    int recursiveTrace( int maxNode,int maxRank);
 };
 
 //ROOT TREE
