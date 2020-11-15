@@ -12,7 +12,6 @@ g(vector<vector<int>>()),agents(),infected(),cycleNum(0),hasVirus(){
     std::ifstream inputJ(path);
     json j;
     inputJ >> j ;
-    cout << (j["graph"]) << endl;
     //init the cur graph
     vector<vector<int>> jGraph = j["graph"];
     g = Graph(jGraph);
@@ -63,6 +62,7 @@ void Session::simulate() {
     j["graph"] = g.getEdges();
     ofstream o("output.json");
     o << j;
+    std::cout<<j<<endl;
 }
 
 void Session::addAgent(const Agent &agent) {
