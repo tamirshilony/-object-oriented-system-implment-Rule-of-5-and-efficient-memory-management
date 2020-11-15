@@ -105,29 +105,19 @@ int MaxRankTree::traceTree(){
     return this->recursiveTrace(this->getNode(),0);
 }
 int MaxRankTree::recursiveTrace(int maxNode ,int maxRank) {
-//    int MaxNode = this->getNode();
     std::vector<Tree*> children = this->getChildren();
     int nChild = children.size();
     if(!nChild)
         return maxNode;
-//    int maxRank = nChild;
-    for(int i = 0; i < nChild; i++){
+    for(int i = 0; i < nChild; i++) {
         MaxRankTree *nextChild = dynamic_cast<MaxRankTree *>(children[i]);
-        if (nChild>maxRank) {
+        if (nChild > maxRank) {
             maxRank = nChild;
             maxNode = this->getNode();
         }
-        maxNode = nextChild->recursiveTrace(maxNode,maxRank);
-
-//        if(temp > maxRank) {
-//            maxRank = temp;
-//            MaxNode = i;
-//        }maxNode = this->getNode();
-//        delete nextChild;
+        maxNode = nextChild->recursiveTrace(maxNode, maxRank);
+        return maxNode;
     }
-//    return maxRank;
-//    delete children;
-    return maxNode;
 }
 
 
