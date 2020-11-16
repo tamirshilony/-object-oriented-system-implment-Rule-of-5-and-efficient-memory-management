@@ -43,6 +43,7 @@ Tree & Tree::operator=(Tree &&other) {
             other.children[i] = nullptr;
         }
     }
+    return *this;
 }
 
 Tree::Tree(Tree &&other):node(other.node),children(other.children) {
