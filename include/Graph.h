@@ -30,8 +30,8 @@ private:
     vector<bool> infectedNode;
     std::vector<std::vector<int>>components;
 
-    bool isCompUniform_inf(vector<int> &comp) const;
-    bool isCompUniform_vir(vector<int> &comp , vector<bool> &hasVirus);
+    bool isCompValid(vector<int> &comp ,vector<bool> &hasVirus) const;
+//    bool isCompUniform_vir(vector<int> &comp , vector<bool> &hasVirus);
 };
 
 #endif
