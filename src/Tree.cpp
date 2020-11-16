@@ -102,9 +102,10 @@ Tree *MaxRankTree::clone() const {
     return new MaxRankTree(*this);
 }
 int MaxRankTree::traceTree(){
-    return this->recursiveTrace(this->getNode(),0);
+    int maxRank = 0;
+    return this->recursiveTrace(this->getNode(),maxRank);
 }
-int MaxRankTree::recursiveTrace(int maxNode ,int maxRank) {
+int MaxRankTree::recursiveTrace(int maxNode ,int &maxRank) {
     std::vector<Tree*> children = this->getChildren();
     int nChild = children.size();
     if(!nChild)
