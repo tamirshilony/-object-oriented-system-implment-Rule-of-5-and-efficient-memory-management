@@ -61,7 +61,7 @@ void Session::simulate() {
     nlohmann::json j;
     j["infected"] = infectedNodes;
     j["graph"] = g.getEdges();
-    ofstream o("output.json");
+    ofstream o("output3.json");
     o << j;
     std::cout<<j<<endl;
 }
