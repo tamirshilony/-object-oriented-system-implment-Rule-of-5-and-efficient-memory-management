@@ -110,12 +110,14 @@ bool Graph::areCompsUniform(vector<bool> hasVirus) {
 
 bool Graph::isCompValid(vector<int> &comp,vector<bool> &hasVirus) const {
     bool ans =true;
-    bool first = isInfected(comp[0]);
+    bool isFirstInf = isInfected(comp[0]);
+    //Check for uniform infection status
     for (int i = 1; i < comp.size() and ans; ++i) {
-        if (isInfected(comp[i]) != first)
+        if (isInfected(comp[i]) != isFirstInf)
             ans = false;
     }
-    if (ans and !first)
+    //Check for uniform virus status
+    if (ans and !isFirstInf)// if all nonInfected
         for (int i = 0; i < comp.size() and ans; ++i) {
             if (hasVirus[comp[0]])
                 ans = false;
