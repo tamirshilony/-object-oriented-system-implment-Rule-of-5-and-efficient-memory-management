@@ -102,13 +102,13 @@ bool Graph::areCompsUniform(vector<bool> hasVirus) {
     components = findComponentsBFS();
     bool ans = true;
     for (int i = 0; i < components.size() and ans; ++i) {
-        if (!isCompUniform(components[i]) or !isCompVirusFree(components[i],hasVirus))
+        if (!isCompUniform_inf(components[i]) or !isCompUniform_vir(components[i],hasVirus))
             ans = false;
     }
     return ans;
 }
 
-bool Graph::isCompUniform(vector<int> comp) {
+bool Graph::isCompUniform_inf(vector<int> &comp) const {
     bool ans =true;
     bool first = isInfected(comp[0]);
     for (int i = 1; i < comp.size() and ans; ++i) {
@@ -117,7 +117,7 @@ bool Graph::isCompUniform(vector<int> comp) {
     }
     return ans;
 }
-bool Graph::isCompVirusFree(vector<int> comp, vector<bool>hasVirus) {
+bool Graph::isCompUniform_vir(vector<int> &comp, vector<bool> &hasVirus) {
     bool ans = true;
     bool first = hasVirus[comp[0]];
     for (int i = 1; i < comp.size() and ans; ++i) {

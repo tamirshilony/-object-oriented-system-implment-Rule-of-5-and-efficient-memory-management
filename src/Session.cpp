@@ -29,6 +29,7 @@ g(vector<vector<int>>()),agents(),infected(),cycleNum(0),hasVirus(){
         if (agent[0]=="V") {
             Virus *newVirus = new Virus(agent[1]);
             addAgent(*newVirus);
+            hasVirus[agent[1]] = true;
         }
         else {
             ContactTracer *CT = new ContactTracer();

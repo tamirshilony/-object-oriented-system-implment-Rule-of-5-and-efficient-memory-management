@@ -91,7 +91,7 @@ int CycleTree::recursiveTrace(int stepsLeft) {
         return Tree::getNode();
     }
     CycleTree *leftChild = dynamic_cast<CycleTree *>(children[0]);
-    leftChild->recursiveTrace(stepsLeft-1);
+    return leftChild->recursiveTrace(stepsLeft-1);
 }
 
 
