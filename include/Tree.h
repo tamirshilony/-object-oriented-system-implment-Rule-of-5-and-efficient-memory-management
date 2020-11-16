@@ -40,6 +40,7 @@ public:
     virtual Tree* clone() const;
     virtual int traceTree() ;
     int recursiveTrace(int stepsLeft);
+    int getCycle() const;
 private:
     int currCycle;
 };

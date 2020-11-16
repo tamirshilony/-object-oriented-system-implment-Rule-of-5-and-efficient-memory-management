@@ -22,7 +22,8 @@ bool Graph::isInfected(int nodeInd) const{
 
 std::vector<int> Graph::getNonInfNeighbors(int nodeInd,const vector<bool> &hasVirus) const{
     vector<int> neighbors;
-    for(int i =0;i<edges[nodeInd].size();i++){
+    int nEdges = edges[nodeInd].size();
+    for(int i =0;i<nEdges;i++){
         if (edges[nodeInd][i]==1 and !isInfected(i) and !hasVirus[i])
             neighbors.push_back(i);
     }
@@ -41,7 +42,8 @@ Tree * Graph::BFS(int nodeInd, const Session &session)const {
         currTree = q[0];
         int nodeInd = currTree->getNode();
         q.erase(q.cbegin());
-        for (int i = 0; i < edges.size(); ++i) {
+        int nEdges = edges.size();
+        for (int i = 0; i < nEdges; ++i) {
             if (edges[nodeInd][i]== 1 and (!visited[i])){
                 visited[i] = true;
                 Tree* nextTree = Tree::createTree(session,i);
@@ -56,7 +58,8 @@ Tree * Graph::BFS(int nodeInd, const Session &session)const {
 
 
 void Graph::removeEdges(int nodeInd)  {
-    for (int i = 0; i < edges[nodeInd].size(); ++i) {
+    int nEdges = edges[nodeInd].size();
+    for (int i = 0; i < nEdges; ++i) {
         if (edges[nodeInd][i]==1) {
             edges[nodeInd][i] = 0;
             edges[i][nodeInd] = 0;
@@ -66,7 +69,8 @@ void Graph::removeEdges(int nodeInd)  {
 vector<vector<int>> Graph::findComponentsBFS() const{
     vector<vector<int>> componentMatrix;
     vector<bool>visited(edges.size(),false);
-    for (int i = 0; i < edges.size(); ++i) {
+    int nEdges = edges.size();
+    for (int i = 0; i < nEdges; ++i) {
         if (!visited[i]) {
             vector<int> currComp;
             currComp.push_back(i);
@@ -76,7 +80,8 @@ vector<vector<int>> Graph::findComponentsBFS() const{
             while (!q.empty()) {
                 int k = q[0];
                 q.erase(q.cbegin());
-                for (int j = 0; j < edges.size(); j++) {
+                int nEdges = edges.size();
+                for (int j = 0; j < nEdges; j++) {
                     if (edges[k][j] == 1 and (!visited[j])) {
                         q.push_back(j);
                         visited[j] = true;
@@ -102,7 +107,8 @@ const vector<bool> Graph::getInfected() const {
 bool Graph::areCompsUniform(vector<bool> &hasVirus) {
     components = findComponentsBFS();
     bool ans = true;
-    for (int i = 0; i < components.size() and ans; ++i) {
+    int nComponents = components.size();
+    for (int i = 0; i < nComponents and ans; ++i) {
         if (!isCompValid(components[i],hasVirus))
             ans = false;
     }
@@ -113,13 +119,14 @@ bool Graph::isCompValid(vector<int> &comp,vector<bool> &hasVirus) const {
     bool ans =true;
     bool isFirstInf = isInfected(comp[0]);
     //Check for uniform infection status
-    for (int i = 1; i < comp.size() and ans; ++i) {
+    int compSize = comp.size();
+    for (int i = 1; i < compSize and ans; ++i) {
         if (isInfected(comp[i]) != isFirstInf)
             ans = false;
     }
     //Check for uniform virus status
     if (ans and !isFirstInf)// if all nonInfected
-        for (int i = 0; i < comp.size() and ans; ++i) {
+        for (int i = 0; i < compSize and ans; ++i) {
             if (hasVirus[comp[0]])
                 ans = false;
         }

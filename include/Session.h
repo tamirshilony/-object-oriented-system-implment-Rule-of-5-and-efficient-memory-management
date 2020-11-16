@@ -20,7 +20,7 @@ enum TreeType{
 
 class Session{
 public:
-    //rule of five
+    //Rule of 5
     Session(const Session& other);
     Session & operator=(const Session &other);
     virtual ~Session();

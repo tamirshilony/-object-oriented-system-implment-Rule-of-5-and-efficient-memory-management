@@ -9,37 +9,44 @@
 Tree::Tree(int rootLabel):node(rootLabel),children(){}
 
 //Rule of five
-Tree::Tree(const Tree &other):children(),node(other.node) {
-    for (int i = 0; i < other.children.size(); ++i) {
+Tree::Tree(const Tree &other):node(other.node), children() {
+    int otherNChildren = other.children.size();
+    for (int i = 0; i < otherNChildren; ++i) {
         children.push_back(other.children[i]->clone());
     }
 }
 Tree & Tree::operator=(const Tree &other) {
     if (this != &other){
         node = other.node;
-        for (int i = 0; i < children.size(); ++i) {
+        int nChild = children.size();
+        for (int i = 0; i < nChild; ++i) {
             delete children[i];
         }
-        for (int i = 0; i < other.children.size(); ++i) {
+        int otherNChild = other.children.size();
+        for (int i = 0; i < otherNChild; ++i) {
             children.push_back(other.children[i]->clone());
         }
     }
     return *this;
 }
 Tree::~Tree() noexcept {
-    if (!children.empty())
-        for (int i = 0; i < children.size(); ++i) {
+    if (!children.empty()) {
+        int nChild = children.size();
+        for (int i = 0; i < nChild; ++i) {
             delete children[i];
         }
+    }
 }
 Tree & Tree::operator=(Tree &&other) {
     if (this != &other){
         node = other.node;
-        for (int i = 0; i < children.size(); ++i) {
+        int nChild = children.size();
+        for (int i = 0; i < nChild; ++i) {
             delete children[i];
         }
         children = other.children;
-        for (int i = 0; i < other.children.size(); ++i) {
+        int otherNChild = other.children.size();
+        for (int i = 0; i < otherNChild; ++i) {
             other.children[i] = nullptr;
         }
     }
@@ -47,7 +54,8 @@ Tree & Tree::operator=(Tree &&other) {
 }
 
 Tree::Tree(Tree &&other):node(other.node),children(other.children) {
-    for (int i = 0; i < other.children.size(); ++i) {
+    int otherNChild =other.children.size();
+    for (int i = 0; i < otherNChild; ++i) {
         other.children[i] = nullptr;
     }
 }
@@ -59,12 +67,12 @@ void Tree::addChild(const Tree &child) {
 Tree* Tree::createTree(const Session& session, int rootLabel){
     TreeType treeType = session.getTreeType();
     switch (treeType) {
-        case MaxRank:
-            return new MaxRankTree(rootLabel);
         case Cycle:
             return new CycleTree(rootLabel, session.getCycle());
         case Root:
             return new RootTree(rootLabel);
+        default:
+            return new MaxRankTree(rootLabel);
     }
 }
 
@@ -77,8 +85,9 @@ const std::vector<Tree *> Tree::getChildren() const {
 
 
 //CYCLE TREE
-CycleTree::CycleTree(int rootLabel, int currCycle): currCycle(currCycle), Tree(rootLabel){}
-CycleTree::CycleTree(const CycleTree &other): currCycle(other.currCycle) ,Tree(other) {}
+CycleTree::CycleTree(int rootLabel, int currCycle):Tree(rootLabel), currCycle(currCycle){}
+CycleTree::CycleTree(const CycleTree &other): Tree(other), currCycle(other.getCycle()) {
+}
 Tree *CycleTree::clone() const {
     return new CycleTree(*this);
 }
@@ -93,6 +102,9 @@ int CycleTree::recursiveTrace(int stepsLeft) {
     }
     CycleTree *leftChild = dynamic_cast<CycleTree *>(children[0]);
     return leftChild->recursiveTrace(stepsLeft-1);
+}
+int CycleTree::getCycle() const {
+    return currCycle;
 }
 
 

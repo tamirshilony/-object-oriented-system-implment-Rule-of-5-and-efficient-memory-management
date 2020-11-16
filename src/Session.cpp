@@ -7,7 +7,12 @@ using namespace std;
 using json = nlohmann::json ;
 
 Session::Session(const std::string &path):
-g(vector<vector<int>>()),agents(),infected(),cycleNum(0),hasVirus(){
+g(vector<vector<int>>()),
+treeType(),
+agents(),
+infected(),
+hasVirus(),
+cycleNum(0){
     //import the json file
     std::ifstream inputJ(path);
     json j;
@@ -54,14 +59,15 @@ void Session::simulate() {
     //making the output
     vector<int>infectedNodes;
     vector<bool>boolInfectedNode = g.getInfected();
-    for (int i = 0; i < boolInfectedNode.size(); ++i) {
+    int infVecLen = boolInfectedNode.size();
+    for (int i = 0; i < infVecLen; ++i) {
         if (boolInfectedNode[i])
             infectedNodes.push_back(i);
     }
     nlohmann::json j;
     j["infected"] = infectedNodes;
     j["graph"] = g.getEdges();
-    ofstream o("output3.json");
+    ofstream o("output1.json");
     o << j;
     std::cout<<j<<endl;
 }
@@ -115,8 +121,14 @@ TreeType Session::getTreeType() const {
 //Rule of 5
 
 Session::Session(const Session& other):
-g(other.g),treeType(other.treeType),agents(), infected(other.infected), hasVirus(other.hasVirus){
-    for(int i = 0;i<other.agents.size();++i){
+g(other.g),
+treeType(other.treeType),
+agents(),
+infected(other.infected),
+hasVirus(other.hasVirus),
+cycleNum(other.cycleNum){
+    int otherNAgents = other.agents.size();
+    for(int i = 0;i<otherNAgents;++i){
         agents.push_back(other.agents[i]->clone());
 
     }
@@ -128,25 +140,35 @@ Session & Session::operator=(const Session &other) {
         treeType = other.treeType;
         infected = other.infected;
         hasVirus = other.hasVirus;
-        for (int i = 0; i < agents.size(); ++i) {
+        cycleNum = other.cycleNum;
+        int nAgents = agents.size();
+        for (int i = 0; i < nAgents; ++i) {
             if (agents[i] != nullptr)
                 delete agents[i];
         }
-        for (int i = 0; i < other.agents.size(); ++i) {
+        int otherNAgents = other.agents.size();
+        for (int i = 0; i < otherNAgents; ++i) {
             this->addAgent(*other.agents[i]);
         }
     }
     return *this;
 }
 Session::~Session() {
-    for (int i = 0; i < agents.size(); ++i) {
+    int nAgents = agents.size();
+    for (int i = 0; i < nAgents; ++i) {
         if (agents[i] != nullptr)
             delete agents[i];
     }
 }
 Session::Session(Session &&other):
-g(other.g),treeType(other.treeType),infected(other.infected),agents(other.agents),hasVirus(other.hasVirus) {
-    for (int i = 0; i < other.agents.size(); ++i) {
+g(other.g),
+treeType(other.treeType),
+agents(other.agents),
+infected(other.infected),
+hasVirus(other.hasVirus),
+cycleNum(other.cycleNum) {
+    int otherNAgents = other.agents.size();
+    for (int i = 0; i < otherNAgents; ++i) {
         other.agents[i] = nullptr;
     }
 }
@@ -156,12 +178,15 @@ Session & Session::operator=(Session &&other) {
         treeType = other.treeType;
         infected = other.infected;
         hasVirus = other.hasVirus;
-        for (int i = 0; i < agents.size(); ++i) {
+        cycleNum = other.cycleNum;
+        int nAgents = agents.size();
+        for (int i = 0; i < nAgents; ++i) {
             if (agents[i] != nullptr)
                 delete agents[i];
         }
         agents = other.agents;
-        for (int i = 0; i < other.agents.size(); ++i) {
+        int otherNAgents = other.agents.size();
+        for (int i = 0; i < otherNAgents; ++i) {
             agents[i] = nullptr;
         }
     }

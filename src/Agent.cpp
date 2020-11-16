@@ -62,7 +62,8 @@ void Virus::act(Session& session) {
 int Virus::getMin(vector<int> vec){
     vector<int>::iterator it;
     int min = vec.at(0);
-    for(int i = 1; i < vec.size(); i++ ){
+    int vecLen = vec.size();
+    for(int i = 1; i < vecLen; i++ ){
         if(min > vec.at(i)){
             min = vec.at(i);
         }
