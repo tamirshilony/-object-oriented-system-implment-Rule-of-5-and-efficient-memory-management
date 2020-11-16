@@ -48,17 +48,15 @@ void Virus::act(Session& session) {
     if(!g.isInfected(nodeInd))
         session.infectNode(nodeInd);
     //2. Get neighbors
-    vector<int> neighbor = g.getNonInfNeighbors(nodeInd);
+    vector<int> neighbor = g.getNonInfNeighbors(nodeInd, session.getViruses());
     //3. Choose next to infect
     if(neighbor.size() != 0) {
         int minNeighbor = getMin(neighbor); // need to be implemented
         //4. Create new virus
-        if(!session.checkVirus(minNeighbor)) {
-            Virus newVirus = Virus(minNeighbor);
-            //5. Add to agent list
-            session.addAgent(newVirus);
-            session.addVirus(minNeighbor);
-        }
+        Virus newVirus = Virus(minNeighbor);
+        //5. Add to agent list
+        session.addAgent(newVirus);
+        session.addVirus(minNeighbor);
     }
 }
 int Virus::getMin(vector<int> vec){

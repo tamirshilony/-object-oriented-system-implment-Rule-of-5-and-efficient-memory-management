@@ -20,14 +20,16 @@ bool Graph::isInfected(int nodeInd) const{
     return infectedNode[nodeInd];
 }
 
-std::vector<int> Graph::getNonInfNeighbors(int nodeInd) const{
+std::vector<int> Graph::getNonInfNeighbors(int nodeInd,const vector<bool> &hasVirus) const{
     vector<int> neighbors;
     for(int i =0;i<edges[nodeInd].size();i++){
-        if (edges[nodeInd][i]==1 and !isInfected(i))
+        if (edges[nodeInd][i]==1 and !isInfected(i) and !hasVirus[i])
             neighbors.push_back(i);
     }
     return neighbors;
 }
+
+
 Tree * Graph::BFS(int nodeInd, const Session &session)const {
     Tree* currTree = Tree::createTree(session,nodeInd);
     Tree &toReturn = *currTree;
@@ -98,7 +100,7 @@ const vector<bool> Graph::getInfected() const {
     return infectedNode;
 }
 
-bool Graph::areCompsUniform(vector<bool> hasVirus) {
+bool Graph::areCompsUniform(vector<bool> &hasVirus) {
     components = findComponentsBFS();
     bool ans = true;
     for (int i = 0; i < components.size() and ans; ++i) {
@@ -124,11 +126,3 @@ bool Graph::isCompValid(vector<int> &comp,vector<bool> &hasVirus) const {
         }
     return ans;
 }
-//bool Graph::isCompUniform_vir(vector<int> &comp, vector<bool> &hasVirus) {
-//    bool ans = true;
-//    bool first = hasVirus[comp[0]];
-//    for (int i = 1; i < comp.size() and ans; ++i) {
-//        if (hasVirus[comp[i]] != first)
-//            ans = false;
-//    }
-//}

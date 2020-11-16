@@ -59,7 +59,7 @@ void Session::simulate() {
     nlohmann::json j;
     j["infected"] = infectedNodes;
     j["graph"] = g.getEdges();
-    ofstream o("output.json");
+    ofstream o("output3.json");
     o << j;
     std::cout<<j<<endl;
 }
@@ -75,7 +75,9 @@ void Session::setGraph(const Graph &graph){
 }
 const Graph & Session::getGraph() const {return g;}
 Graph & Session::getGraph() {return g;}
-const int Session::getCycle() const {return cycleNum;}
+
+int Session::getCycle() const {return cycleNum;}
+
 
 
 //Agent actions
@@ -97,11 +99,11 @@ int Session::dequeueInfected() {
 void Session::enqueueInfected(int node) {
     infected.push(node);
 }
-bool Session::checkVirus(int nodeInd) {
-    return hasVirus[nodeInd];
-}
 void Session::addVirus(int nodeInd) {
     hasVirus[nodeInd] = true;
+}
+const vector<bool> &Session::getViruses() const {
+    return hasVirus;
 }
 
 TreeType Session::getTreeType() const {
@@ -163,5 +165,6 @@ Session & Session::operator=(Session &&other) {
     }
     return *this;
 }
+
 
 

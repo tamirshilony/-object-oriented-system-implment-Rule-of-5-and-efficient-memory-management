@@ -76,8 +76,8 @@ const std::vector<Tree *> Tree::getChildren() const {
 
 
 //CYCLE TREE
-CycleTree::CycleTree(int rootLabel, int currCycle): Tree(rootLabel), currCycle(currCycle){}
-CycleTree::CycleTree(const CycleTree &other): Tree(other), currCycle(currCycle){}
+CycleTree::CycleTree(int rootLabel, int currCycle): currCycle(currCycle), Tree(rootLabel){}
+CycleTree::CycleTree(const CycleTree &other): currCycle(currCycle) ,Tree(other) {}
 Tree *CycleTree::clone() const {
     return new CycleTree(*this);
 }

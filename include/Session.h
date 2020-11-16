@@ -38,7 +38,8 @@ public:
 
     const Graph& getGraph() const;
     Graph& getGraph();
-    const int getCycle()const;
+    const vector<bool>& getViruses()const;
+    int getCycle()const;
 
 
     //Agent actions
@@ -47,8 +48,8 @@ public:
 
     void infectNode(int node); //should update node as infected
     bool isInfected(int node); //check if node was infected
-    bool checkVirus(int nodeInd);
     void addVirus(int nodeInd);
+
     TreeType getTreeType() const;
     
 private:

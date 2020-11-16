@@ -15,13 +15,13 @@ public:
     bool isInfected(int nodeInd) const;
 
     //new methods
-    std::vector<int> getNonInfNeighbors(int nodeInd) const;
+    std::vector<int> getNonInfNeighbors(int nodeInd, const vector<bool> &hasVirus) const;
     Tree* BFS(int nodeInd,const Session& session)const;
     void removeEdges(int nodeInd);
     vector<vector<int>> findComponentsBFS()const;
     const vector<vector<int>> getEdges()const;
     const vector<bool> getInfected()const;
-    bool areCompsUniform(vector<bool> hasVirus);
+    bool areCompsUniform(vector<bool> &hasVirus);
 
 
 private:
