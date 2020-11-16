@@ -29,7 +29,6 @@ std::vector<int> Graph::getNonInfNeighbors(int nodeInd,const vector<bool> &hasVi
     return neighbors;
 }
 
-
 Tree * Graph::BFS(int nodeInd, const Session &session)const {
     Tree* currTree = Tree::createTree(session,nodeInd);
     Tree &toReturn = *currTree;

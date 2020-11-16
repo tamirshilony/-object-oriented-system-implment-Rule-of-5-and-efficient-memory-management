@@ -43,6 +43,7 @@ Tree & Tree::operator=(Tree &&other) {
             other.children[i] = nullptr;
         }
     }
+    return *this;
 }
 
 Tree::Tree(Tree &&other):node(other.node),children(other.children) {
@@ -77,7 +78,7 @@ const std::vector<Tree *> Tree::getChildren() const {
 
 //CYCLE TREE
 CycleTree::CycleTree(int rootLabel, int currCycle): currCycle(currCycle), Tree(rootLabel){}
-CycleTree::CycleTree(const CycleTree &other): currCycle(currCycle) ,Tree(other) {}
+CycleTree::CycleTree(const CycleTree &other): currCycle(other.currCycle) ,Tree(other) {}
 Tree *CycleTree::clone() const {
     return new CycleTree(*this);
 }
@@ -102,9 +103,10 @@ Tree *MaxRankTree::clone() const {
     return new MaxRankTree(*this);
 }
 int MaxRankTree::traceTree(){
-    return this->recursiveTrace(this->getNode(),0);
+    int maxRank = 0;
+    return this->recursiveTrace(this->getNode(),maxRank);
 }
-int MaxRankTree::recursiveTrace(int maxNode ,int maxRank) {
+int MaxRankTree::recursiveTrace(int maxNode ,int &maxRank) {
     std::vector<Tree*> children = this->getChildren();
     int nChild = children.size();
     if(!nChild)
