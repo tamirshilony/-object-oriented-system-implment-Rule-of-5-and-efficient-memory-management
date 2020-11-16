@@ -116,7 +116,7 @@ bool Graph::isCompValid(vector<int> &comp,vector<bool> &hasVirus) const {
             ans = false;
     }
     if (ans and !first)
-        for (int i = 0; i < comp.size(); ++i) {
+        for (int i = 0; i < comp.size() and ans; ++i) {
             if (hasVirus[comp[0]])
                 ans = false;
         }

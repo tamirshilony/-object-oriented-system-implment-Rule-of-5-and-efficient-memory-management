@@ -116,8 +116,8 @@ int MaxRankTree::recursiveTrace(int maxNode ,int maxRank) {
             maxNode = this->getNode();
         }
         maxNode = nextChild->recursiveTrace(maxNode, maxRank);
-        return maxNode;
     }
+    return maxNode;
 }
 
 
