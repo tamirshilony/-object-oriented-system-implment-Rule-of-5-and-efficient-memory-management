@@ -30,10 +30,12 @@ g(vector<vector<int>>()),agents(),infected(),cycleNum(0),hasVirus(){
             Virus *newVirus = new Virus(agent[1]);
             addAgent(*newVirus);
             hasVirus[agent[1]] = true;
+            delete newVirus;
         }
         else {
             ContactTracer *CT = new ContactTracer();
             addAgent(*CT);
+            delete CT;
         }
 
     }
@@ -59,7 +61,7 @@ void Session::simulate() {
     nlohmann::json j;
     j["infected"] = infectedNodes;
     j["graph"] = g.getEdges();
-    ofstream o("output3.json");
+    ofstream o("output1.json");
     o << j;
     std::cout<<j<<endl;
 }

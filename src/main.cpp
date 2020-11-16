@@ -14,7 +14,7 @@ int main(int argc, char** argv){
 //        return 0;
 //    }
 //    Session sess(argv[1]);
-    Session sess("/home/spl211/stud/SPL/Ass1/config3.json");
+    Session sess("/home/spl211/stud/SPL/Ass1/config1.json");
     sess.simulate();
     return 0;
 }
