@@ -81,8 +81,8 @@ void Session::addAgent(const Agent &agent) {
 void Session::setGraph(const Graph &graph){
     g = graph;
 }
-const Graph & Session::getGraph() const {return g;}
-Graph & Session::getGraph() {return g;}
+//const Graph & Session::getGraph() const {return g;}
+//Graph & Session::getGraph() {return g;}
 
 int Session::getCycle() const {return cycleNum;}
 
@@ -95,6 +95,9 @@ void Session::infectNode(int node){//should update node as infected
 }
 bool Session::isInfected(int node) {
     return g.isInfected(node);
+}
+const vector<int> Session::getValidNeighbors(int nodeInd) {
+    return g.getNonInfNeighbors(nodeInd, hasVirus);
 }
 
 int Session::dequeueInfected() {
@@ -113,9 +116,19 @@ void Session::addVirus(int nodeInd) {
 const vector<bool> &Session::getViruses() const {
     return hasVirus;
 }
+bool Session::checkIfInfected(int nodeInd) {
+    return g.isInfected(nodeInd);
+}
+Tree * Session::createTreeBFS(int nextInf) {
+    return g.BFS(nextInf, *this);
+}
 
 TreeType Session::getTreeType() const {
     return treeType;
+}
+
+void Session::isolateNode(int toIsolate) {
+    g.removeEdges(toIsolate);
 }
 
 //Rule of 5
@@ -136,7 +149,7 @@ cycleNum(other.cycleNum){
 
 Session & Session::operator=(const Session &other) {
     if (this != &other){
-        g = other.getGraph();
+        g = other.g;
         treeType = other.treeType;
         infected = other.infected;
         hasVirus = other.hasVirus;

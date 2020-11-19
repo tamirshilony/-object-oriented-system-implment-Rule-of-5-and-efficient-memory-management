@@ -43,6 +43,8 @@ public:
     int getCycle() const;
 private:
     int currCycle;
+
+
 };
 
 //MAX RANK TREE

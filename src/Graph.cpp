@@ -88,7 +88,6 @@ vector<vector<int>> Graph::findComponentsBFS() const{
                         currComp.push_back(j);
                     }
                 }
-
             }
             componentMatrix.push_back(currComp);
         }
