@@ -127,7 +127,7 @@ bool Graph::isCompValid(vector<int> &comp,vector<bool> &hasVirus) const {
     //Check for uniform virus status
     if (ans and !isFirstInf)// if all nonInfected
         for (int i = 0; i < compSize and ans; ++i) {
-            if (hasVirus[comp[0]])
+            if (hasVirus[comp[i]])
                 ans = false;
         }
     return ans;
