@@ -153,8 +153,10 @@ Session & Session::operator=(const Session &other) {
         cycleNum = other.cycleNum;
         int nAgents = agents.size();
         for (int i = 0; i < nAgents; ++i) {
-            if (agents[i] != nullptr)
+            if (agents[i] != nullptr) {
                 delete agents[i];
+                agents[i] = nullptr;
+            }
         }
         int otherNAgents = other.agents.size();
         for (int i = 0; i < otherNAgents; ++i) {
@@ -166,9 +168,12 @@ Session & Session::operator=(const Session &other) {
 Session::~Session() {
     int nAgents = agents.size();
     for (int i = 0; i < nAgents; ++i) {
-        if (agents[i] != nullptr)
+        if (agents[i] != nullptr) {
             delete agents[i];
+            agents[i] = nullptr;
+        }
     }
+    agents.clear();
 }
 Session::Session(Session &&other):
 g(other.g),
@@ -191,14 +196,17 @@ Session & Session::operator=(Session &&other) {
         cycleNum = other.cycleNum;
         int nAgents = agents.size();
         for (int i = 0; i < nAgents; ++i) {
-            if (agents[i] != nullptr)
+            if (agents[i] != nullptr){
                 delete agents[i];
+                agents[i] = nullptr;
+            }
         }
         agents = other.agents;
         int otherNAgents = other.agents.size();
         for (int i = 0; i < otherNAgents; ++i) {
             agents[i] = nullptr;
         }
+        other.agents.clear();
     }
     return *this;
 }
