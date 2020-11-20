@@ -67,7 +67,7 @@ void Session::simulate() {
     nlohmann::json j;
     j["infected"] = infectedNodes;
     j["graph"] = g.getEdges();
-    ofstream o("output1.json");
+    ofstream o("output3.json");
     o << j;
     std::cout<<j<<endl;
 }
@@ -122,15 +122,12 @@ bool Session::checkIfInfected(int nodeInd) {
 Tree * Session::createTreeBFS(int nextInf) {
     return g.BFS(nextInf, *this);
 }
-
 TreeType Session::getTreeType() const {
     return treeType;
 }
-
 void Session::isolateNode(int toIsolate) {
     g.removeEdges(toIsolate);
 }
-
 //Rule of 5
 
 Session::Session(const Session& other):
