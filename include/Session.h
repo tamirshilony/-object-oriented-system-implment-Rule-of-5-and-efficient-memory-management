@@ -35,20 +35,22 @@ public:
 
     //Graph methods
     void setGraph(const Graph& graph);
-
-    const Graph& getGraph() const;
-    Graph& getGraph();
-    const vector<bool>& getViruses()const;
+//    const Graph& getGraph() const;
+//    Graph& getGraph();
     int getCycle()const;
+    void isolateNode(int toIsolate);
 
 
     //Agent actions
     void enqueueInfected(int node);
     int dequeueInfected();
-
+    Tree *createTreeBFS(int nextInf);
     void infectNode(int node); //should update node as infected
     bool isInfected(int node); //check if node was infected
+    const vector<int> getValidNeighbors(int nodeInd);
     void addVirus(int nodeInd);
+    const vector<bool>& getViruses()const;
+    bool checkIfInfected(int nodeInd);
 
     TreeType getTreeType() const;
     

@@ -10,7 +10,6 @@ public:
     virtual Agent * clone() const= 0;
     virtual ~Agent() = default;
     virtual void act(Session& session)=0;
-
 };
 
 
