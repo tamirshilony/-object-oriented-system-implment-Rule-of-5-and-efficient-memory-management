@@ -62,6 +62,7 @@ private:
     std::queue<int>infected;
     std::vector<bool>hasVirus;
     int cycleNum;
+    void clear();
 
 };
 

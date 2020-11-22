@@ -17,11 +17,7 @@ Tree::Tree(const Tree &other):node(other.node), children() {
 }
 Tree & Tree::operator=(const Tree &other) {
     if (this != &other){
-        int nChild = children.size();
-        for (int i = 0; i < nChild; ++i) {
-            delete children[i];
-            children[i] = nullptr;
-        }
+        clear();
         node = other.node;
         int otherNChild = other.children.size();
         for (int i = 0; i < otherNChild; ++i) {
@@ -32,22 +28,13 @@ Tree & Tree::operator=(const Tree &other) {
 }
 Tree::~Tree() noexcept {
     if (!children.empty()) {
-        int nChild = children.size();
-        for (int i = 0; i < nChild; ++i) {
-            delete children[i];
-        }
+        clear();
     }
 }
 Tree & Tree::operator=(Tree &&other) {
     if (this != &other){
         node = other.node;
-        int nChild = children.size();
-        for (int i = 0; i < nChild; ++i) {
-            if(children[i]) {
-                delete children[i];
-                children[i] = nullptr;
-            }
-        }
+        clear();
         children = other.children;
         int otherNChild = other.children.size();
         for (int i = 0; i < otherNChild; ++i) {
@@ -68,6 +55,17 @@ Tree::Tree(Tree &&other):node(other.node),children(other.children) {
 void Tree::addChild(const Tree &child) {
     Tree *toAdd = child.clone();
     children.push_back(toAdd);
+}
+
+void Tree::clear() {
+    int nChild = children.size();
+    for (int i = 0; i < nChild; ++i) {
+        if(children[i]) {
+            delete children[i];
+            children[i] = nullptr;
+        }
+    }
+    children.clear();
 }
 Tree* Tree::createTree(const Session& session, int rootLabel){
     TreeType treeType = session.getTreeType();

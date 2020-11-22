@@ -81,8 +81,7 @@ void Session::addAgent(const Agent &agent) {
 void Session::setGraph(const Graph &graph){
     g = graph;
 }
-//const Graph & Session::getGraph() const {return g;}
-//Graph & Session::getGraph() {return g;}
+
 
 int Session::getCycle() const {return cycleNum;}
 
@@ -151,13 +150,7 @@ Session & Session::operator=(const Session &other) {
         infected = other.infected;
         hasVirus = other.hasVirus;
         cycleNum = other.cycleNum;
-        int nAgents = agents.size();
-        for (int i = 0; i < nAgents; ++i) {
-            if (agents[i] != nullptr) {
-                delete agents[i];
-                agents[i] = nullptr;
-            }
-        }
+        clear();
         int otherNAgents = other.agents.size();
         for (int i = 0; i < otherNAgents; ++i) {
             this->addAgent(*other.agents[i]);
@@ -166,15 +159,9 @@ Session & Session::operator=(const Session &other) {
     return *this;
 }
 Session::~Session() {
-    int nAgents = agents.size();
-    for (int i = 0; i < nAgents; ++i) {
-        if (agents[i] != nullptr) {
-            delete agents[i];
-            agents[i] = nullptr;
-        }
-    }
-    agents.clear();
+    clear();
 }
+
 Session::Session(Session &&other):
 g(other.g),
 treeType(other.treeType),
@@ -194,13 +181,7 @@ Session & Session::operator=(Session &&other) {
         infected = other.infected;
         hasVirus = other.hasVirus;
         cycleNum = other.cycleNum;
-        int nAgents = agents.size();
-        for (int i = 0; i < nAgents; ++i) {
-            if (agents[i] != nullptr){
-                delete agents[i];
-                agents[i] = nullptr;
-            }
-        }
+        clear();
         agents = other.agents;
         int otherNAgents = other.agents.size();
         for (int i = 0; i < otherNAgents; ++i) {
@@ -209,6 +190,17 @@ Session & Session::operator=(Session &&other) {
         other.agents.clear();
     }
     return *this;
+}
+
+void Session::clear() {
+    int nAgents = agents.size();
+    for (int i = 0; i < nAgents; ++i) {
+        if (agents[i] != nullptr) {
+            delete agents[i];
+            agents[i] = nullptr;
+        }
+    }
+    agents.clear();
 }
 
 

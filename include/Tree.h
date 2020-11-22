@@ -29,6 +29,7 @@ public:
 private:
     int node;
     std::vector<Tree*> children;
+    void clear();
 };
 
 
